@@ -1,0 +1,137 @@
+/* three.js scene */
+#scene {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+/* UI layer */
+#ui {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: grid;
+    /* This is to configure top and bottom widths */
+    grid-template-rows: 90px 1fr 15px;
+    /* This is to configure left and right widths */
+    grid-template-columns: 40px 1fr 40px;
+    /* Note: "1fr" fills the middle space for the scene */
+}
+
+.overlay-edge {
+    background-color: #35322C;
+}
+
+.overlay-top {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 4;
+}
+
+.overlay-bottom {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-row-end: 4;
+    grid-column-end: 4;
+}
+
+.overlay-left {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-row-end: 3;
+    grid-column-end: 2;
+}
+
+.overlay-right {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    grid-row-end: 3;
+    grid-column-end: 4;
+}
+
+.overlay-content {
+    grid-row-start: 2;
+    grid-column-start: 2;
+    grid-row-end: 3;
+    grid-column-end: 3;
+    color: white;
+}
+
+.infoButton {
+    cursor: pointer;
+    margin: 15px;
+    padding: 10px 12px;
+    background-color: #86D338;
+    border: none;
+    color: #000000;
+    font-size: 24px;
+    border-radius: 6px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.infoIcon {
+    width: 30px;
+    height: 22px;
+}
+
+.infoBox {
+    display: none;
+}
+
+.infoBoxTitle {
+    font-size: 20px;
+}
+
+.goals {
+    font-size: 16px;
+    margin-top: 10px;
+
+    .goalsList {
+        margin-top: 5px;
+    }
+}
+
+.controlsBox {
+    padding: 5px 8px;
+    border: 1px solid #86D338;
+    color: white;
+
+    .controlsTitle {
+        font-size: 16px;
+    }
+
+    .controlsList {
+        padding: 5px 5px 15px 5px;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .controlsListRow {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+}
+
+.funcButton {
+    background-color: #D9D9D9;
+    color: #000;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 1px 3.2px #B8B8B8;
+}

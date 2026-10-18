@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/puzzle.css">
+    <title>WeeModel - puzzle</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+
+    <script type="module" src="./puzzle.js"></script>
+
+</head>
+
+<body>
+
+    <div id="scene"></div>
+
+    <div id="ui">
+        <div class="overlay-edge overlay-top">
+            <button type="button" class="infoButton russo-one-regular">
+                <img src="../assets/ListIcon.png" alt="list icon" class="infoIcon">
+                INFO
+            </button>
+        </div>
+        <div class="overlay-edge overlay-right"></div>
+        <div class="overlay-edge overlay-bottom"></div>
+        <div class="overlay-edge overlay-left"></div>
+
+        <div class="overlay-content">
+            <div class="infoBox russo-one-regular">
+                <div class="infoBoxTitle">Missing Puzzle Piece</div>
+                <div class="goals">Main Goal: Fill Hollow Space
+                    <ul class="goalsList">
+                        <li>Rotate Shape</li>
+                        <li>Translate Shape</li>
+                        <li>Move Shape into Hollow</li>
+                    </ul>
+                </div>
+                <div class="controlsBox">
+                    <div class="controlsTitle">Controls</div>
+                    <div class="controlsList">
+                        <div class="controlsListRow">
+                            <div class="funcButton">T</div>
+                            <div>Translation</div>
+                        </div>
+                        <div class="controlsListRow">
+                            <div class="funcButton">R</div>
+                            <div>Rotation</div>
+                        </div>
+                        <div class="controlsListRow">
+                            <div class="funcButton">S</div>
+                            <div>Scaling</div>
+                        </div>
+                        <div class="controlsListRow">
+                            <div class="funcButton">C</div>
+                            <div>Camera</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -12,11 +12,29 @@
 <body>
 
     <div class="screenOuterBox">
-        <div class="screenInnerBox">
-        <div class = "press-start-2p">
-            WeeModel
+        <div class="screenInnerBox" id="screen" data-state="title">
+            <div class="screenContent" id="titleScreen">
+                <h1 class="press-start-2p titleHeading">WeeModel</h1>
+                <div class="playerContainer">
+                    <div class="playerReady1">
+                        <h2 class="press-start-2p apprenticeHeading">Apprentice</h2>
+                        <img src="./assets/ready-up/novice.png" alt="novice">
+                        <button type="button" data-ready aria-pressed="false">Not ready</button>
+                    </div>
+
+                    <div class="playerReady2">
+                        <h2 class="press-start-2p gameMasterHeading">Game Master</h2>
+                        <img src="./assets/ready-up/game-master.png" alt="novice" style="transform: scaleX(-1);">
+                        <button type="button" data-ready aria-pressed="false">Not ready</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loadingScreen" id="loadingScreen" hidden aria-live="polite">
+                <p class="press-start-2p">Loading...</p>
+            </div>
         </div>
-        </div>
+
         <div class = "russo-one-regular">
             3D Expertise Sharing Online
         </div>
@@ -28,5 +46,4 @@
     <button id="readyBtn">Ready!</button> -->
 
 </body>
-
 </html>

@@ -12,12 +12,29 @@
 }
 
 .press-start-2p {
-        font-family: "Press Start 2P", sans-serif;
-    font-style: normal;
+    font-family: "Press Start 2P", sans-serif;
+    color: #9D279B;
+}
+
+/* Main title */
+.titleHeading {
     text-align: center;
-    margin-top: clamp(12px, 1vh, 32px);
-    margin-bottom: 0;
-    color: #696562;
+    font-size: clamp(24px, 4vw, 48px);
+    margin-top: 20px;
+}
+
+/* Apprentice heading */
+.apprenticeHeading {
+    font-size: clamp(12px, 1.5vw, 20px);
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Game Master heading */
+.gameMasterHeading {
+    font-size: clamp(12px, 1.5vw, 20px);
+    text-align: center;
+    margin-top: 30px;
 }
 
 body {
@@ -64,26 +81,105 @@ body {
         inset 0 -10px 4px rgba(0, 0, 0, 0.25);
 }
 
-
-
-.screenInnerBox::after {
+.screenInnerBox::before {
     position: absolute;
     inset: 0;
-    background-image: url("../assets/ready-up/novice.png");
-    background-repeat: repeat;
-    background-size: 160px 160px;
+    z-index: 0;
     content: "";
-    opacity: 0.12;
     pointer-events: none;
 }
 
+.screenInnerBox[data-state="title"]::before {
+    background: url("../assets/ready-up/noise.png");
+}
 
-/* .screenInnerBox::after {
+.screenInnerBox[data-state="loading"]::before {
+    background: url("../assets/ready-up/novice.png") repeat-x;
+    background-repeat: repeat;
+    background-size: auto 160px;
+    animation: scroll-image 5s linear infinite;
+    opacity: 0.12;
+}
+
+@keyframes scroll-image {
+    from { background-position: 0 0; }
+    to   { background-position: 160px 0px; }
+}
+
+/* Shared positioning for both screen states */
+.screenContent,
+.loadingScreen {
     position: absolute;
     inset: 0;
-    background-image: url("../assets/ready-up/noise.png");
-    background-size: 160px 160px;
-    content: "";
-    opacity: 60%;
-    pointer-events: none;
-} */
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+/* Title screen layout */
+#titleScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Loading screen layout */
+.loadingScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* don't let hidden screens display as flex */
+.screenContent[hidden],
+.loadingScreen[hidden] {
+    display: none;
+}
+
+.playerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+}
+
+.playerReady1,
+.playerReady2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    min-width: 0;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.playerReady1 img {
+    width: 100%;
+    max-width: 220px;
+    max-height: 35vh;
+    object-fit: contain;
+}
+.playerReady2 img {
+    width: 100%;
+    max-width: 280px;
+    max-height: 40vh;
+    object-fit: contain;
+}
+
+.playerReady1 h2,
+.playerReady2 h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.playerReady1 button,
+.playerReady2 button {
+    margin-top: 16px;
+}

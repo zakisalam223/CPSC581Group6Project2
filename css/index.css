@@ -1,0 +1,89 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.russo-one-regular {
+    font-family: "Russo One", sans-serif;
+    font-style: normal;
+    text-align: center;
+    margin-top: clamp(12px, 1vh, 32px);
+    margin-bottom: 0;
+    color: #696562;
+}
+
+.press-start-2p {
+        font-family: "Press Start 2P", sans-serif;
+    font-style: normal;
+    text-align: center;
+    margin-top: clamp(12px, 1vh, 32px);
+    margin-bottom: 0;
+    color: #696562;
+}
+
+body {
+    box-sizing: border-box;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #528693;
+}
+
+.screenOuterBox {
+    width: 90vw;
+    height: 90vh;
+    background-color: #2F2E2A;
+    box-sizing: border-box;
+    border-radius: clamp(18px, 4vw, 50px);
+    padding: clamp(16px, 4vw, 50px);
+    padding-bottom: clamp(8px, 1.5vh, 16px);
+    box-shadow:
+        0 0 4px 10px #335760,
+        0 14px 24px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.screenInnerBox {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    
+    background-color: #FCFAF3;
+    box-shadow:
+        inset 10px 0 4px rgba(0, 0, 0, 0.25),
+        inset -10px 0 4px rgba(0, 0, 0, 0.25),
+        inset 0 10px 4px rgba(0, 0, 0, 0.25),
+        inset 0 -10px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+.screenInnerBox::after {
+    position: absolute;
+    inset: 0;
+    background-image: url("../assets/ready-up/novice.png");
+    background-repeat: repeat;
+    background-size: 160px 160px;
+    content: "";
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+
+/* .screenInnerBox::after {
+    position: absolute;
+    inset: 0;
+    background-image: url("../assets/ready-up/noise.png");
+    background-size: 160px 160px;
+    content: "";
+    opacity: 60%;
+    pointer-events: none;
+} */

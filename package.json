@@ -3,6 +3,13 @@
     "three": "^0.186.1"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "vite": "^8.3.4"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --base /CPSC581Group6Project2/",
+    "deploy": "vite build && gh-pages -d dist"
   }
 }

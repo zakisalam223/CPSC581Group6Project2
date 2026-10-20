@@ -74,6 +74,39 @@ cameraOrbit.phi = Math.PI / 3;
 camera.position.setFromSpherical(cameraOrbit);
 camera.lookAt(0, 0, 0);
 
+// creating world axis lines
+const xAxisPoints = [
+  new THREE.Vector3(-10000, 0, 0),
+  new THREE.Vector3(10000, 0, 0)
+];
+
+const yAxisPoints = [
+  new THREE.Vector3(0, -10000, 0),
+  new THREE.Vector3(0, 10000, 0)
+];
+
+const zAxisPoints = [
+  new THREE.Vector3(0, 0, -10000),
+  new THREE.Vector3(0, 0, 10000)
+];
+
+const red = new THREE.LineBasicMaterial({ color: 0xff0000});
+const green = new THREE.LineBasicMaterial({ color: 0x00ff00});
+const blue = new THREE.LineBasicMaterial({ color: 0x0000ff});
+
+const xAxisGeometry = new THREE.BufferGeometry().setFromPoints(xAxisPoints);
+const yAxisGeometry = new THREE.BufferGeometry().setFromPoints(yAxisPoints);
+const zAxisGeometry = new THREE.BufferGeometry().setFromPoints(zAxisPoints);
+
+const xAxis = new THREE.Line(xAxisGeometry, red);
+const yAxis = new THREE.Line(yAxisGeometry, green);
+const zAxis = new THREE.Line(zAxisGeometry, blue);
+
+scene.add(xAxis);
+scene.add(yAxis);
+scene.add(zAxis);
+
+
 // enum for the transformation states, e.g. translation, rotation or scaling
 const TransformationStates = Object.freeze({
     Translation: 'translation',

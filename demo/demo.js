@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import '../css/mainstyle.css';
+import '../css/style.css';
 import skyUrl from '/assets/sky.png';
 import { createPhoneView } from './phone.js';
 

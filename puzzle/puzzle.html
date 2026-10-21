@@ -29,6 +29,11 @@
                     INFO
                 </button>
 
+                <button type="button" class="phoneToggleButton russo-one-regular" aria-controls="phonePanel"
+                    aria-expanded="false">
+                    PHONE
+                </button>
+
                 <div class="timer russo-one-regular">
                     <input type="number" id="hour" min="0" value="00" step="1" placeholder="hh" readonly></input>
                     <h2 class="colon"> : </h2>
@@ -62,12 +67,12 @@
                             <span class="checkmark"></span>
                         </label>
 
-                        <label class="goal">Translate Shape
+                        <label class="goal">Scale Shape
                             <input type="checkbox" id="goal2">
                             <span class="checkmark"></span>
                         </label>
 
-                        <label class="goal">Move Shape into Hollow
+                        <label class="goal">Translate Shape into Hollow
                             <input type="checkbox" id="goal3">
                             <span class="checkmark"></span>
                         </label>
@@ -162,6 +167,19 @@
                 <img src="/assets/Check.png" alt="check">
             </div>
         </div>
+        <aside class="phone-panel russo-one-regular" id="phonePanel" aria-label="Phone mirroring the cube's rotation"
+            hidden>
+            <div class="phone-title">
+                <span class="phone-drag-handle">Phone</span>
+                <button type="button" class="phoneCloseButton" aria-label="Close phone panel">&times;</button>
+            </div>
+            <div id="phoneCanvas" class="phone-canvas"></div>
+            <div class="phone-readout">
+                <span class="axis axis-x">X <b id="phoneX">0°</b></span>
+                <span class="axis axis-y">Y <b id="phoneY">0°</b></span>
+                <span class="axis axis-z">Z <b id="phoneZ">0°</b></span>
+            </div>
+        </aside>
     </div>
 
     <!-- LEVEL COMPLETE -->

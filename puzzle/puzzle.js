@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import skyUrl from '/assets/sky.png';
 import hollowUrl from '/assets/hollow.obj';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+import { createPhoneView } from '../demo/phone.js';
 
 const goals = {
     goal1: "Rotate Shape",
@@ -52,8 +53,8 @@ const demoButton = document.getElementById("demo-button");
 let interval;
 // CHANGE TIME AS NEEDED (to go to level complete faster)
 let hour = 0;
-let min = 0;
-let sec = 1000;
+let min = 2;
+let sec = 0;
 let showInfo = false;
 let timer_set = 0;
 
@@ -87,7 +88,7 @@ levelsButton.addEventListener('click', () => {
 })
 
 demoButton.addEventListener('click', () => {
-    window.alert("OOPS! Demo in progress...");
+    window.location.href = '../demo/demo.html';
 })
 
 goal1Check.addEventListener("change", () => {
@@ -182,6 +183,46 @@ function toggleInfoBox() {
     infoBox.style.display = showInfo ? 'block' : 'none';
 }
 
+// for phone
+const phonePanel = document.getElementById('phonePanel');
+const phoneToggleButton = document.querySelector('.phoneToggleButton');
+const phoneCloseButton = document.querySelector('.phoneCloseButton');
+const phoneDragHandle = document.querySelector('.phone-drag-handle');
+
+function setPhonePanelOpen(isOpen) {
+    phonePanel.hidden = !isOpen;
+    phoneToggleButton.setAttribute('aria-expanded', String(isOpen));
+}
+
+phoneToggleButton.addEventListener('click', () => {
+    setPhonePanelOpen(phonePanel.hidden);
+});
+phoneCloseButton.addEventListener('click', () => setPhonePanelOpen(false));
+
+let dragOffsetX = 0;
+let dragOffsetY = 0;
+
+phoneDragHandle.addEventListener('pointerdown', (event) => {
+    const panelBounds = phonePanel.getBoundingClientRect();
+    dragOffsetX = event.clientX - panelBounds.left;
+    dragOffsetY = event.clientY - panelBounds.top;
+    phonePanel.style.left = `${panelBounds.left}px`;
+    phonePanel.style.top = `${panelBounds.top}px`;
+    phonePanel.style.right = 'auto';
+    phoneDragHandle.setPointerCapture(event.pointerId);
+});
+
+phoneDragHandle.addEventListener('pointermove', (event) => {
+    if (!phoneDragHandle.hasPointerCapture(event.pointerId)) return;
+
+    const maxLeft = window.innerWidth - phonePanel.offsetWidth;
+    const maxTop = window.innerHeight - phonePanel.offsetHeight;
+    const left = THREE.MathUtils.clamp(event.clientX - dragOffsetX, 0, maxLeft);
+    const top = THREE.MathUtils.clamp(event.clientY - dragOffsetY, 0, maxTop);
+    phonePanel.style.left = `${left}px`;
+    phonePanel.style.top = `${top}px`;
+});
+
 
 
 
@@ -197,6 +238,7 @@ const material = new THREE.MeshPhongMaterial({ color: 0xBBFFAA, emissive: 0x0000
 
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
+const phoneView = createPhoneView(document.getElementById('phoneCanvas'), cube);
 
 const objLoader = new OBJLoader();
 const hollowObj = await objLoader.loadAsync(hollowUrl);
@@ -300,6 +342,7 @@ function animate(time) {
     const deltaTime = timer.getDelta();
     applyTransformations(currentTransformationState, deltaTime, isZBeingPressed);
     renderer.render(scene, camera);
+    phoneView.update(timer.getElapsed());
 }
 renderer.setAnimationLoop(animate);
 

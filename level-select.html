@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/level-select.css">
     <title>Level Select</title>
     <style>
         body {
@@ -16,9 +17,38 @@
 </head>
 
 <body>
+    <div class="levelSelectPage">
+        <h1 class="levelSelectTitle russo-one-regular">Level Selection</h1>
 
-    <h1>Ready Up Page - in progress...</h1>
-    <button id="puzzleBtn">Go to Puzzle Page</button>
+        <div class="levelList">
+            <div class="levelRow">
+                <!-- Keeps id="puzzleBtn" so your existing level-select.js still routes to the puzzle -->
+                <button type="button" id="puzzleBtn" class="levelCard">
+                    <span class="levelNumber">1</span>
+                    <span class="levelStars" aria-label="0 of 3 stars">&#9734;&#9734;&#9734;</span>
+                </button>
+
+                <div class="levelInfo">
+                    <h2 class="levelName">Cube in a box</h2>
+                    <div class="levelTags">
+                        <span class="levelTag">Rotation</span>
+                        <span class="levelTag">Transformation</span>
+                        <span class="levelTag">Scaling</span>
+                    </div>
+                </div>
+
+                <!-- Placeholder: does nothing -->
+                <button type="button" class="editBtn" aria-label="Edit level">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+                        <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Placeholder: does nothing -->
+            <button type="button" class="addLevelBtn" aria-label="Add level">+</button>
+        </div>
+    </div>
 
 </body>
 

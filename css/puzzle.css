@@ -221,9 +221,9 @@
     border: 2px solid #FFFFFF;
     color: #86D338;
     width: 200px;
-    position: relative;
-    left: calc(40px + 73.2vw);
-    bottom: calc(15px + 74vh);
+    position: fixed;
+    top: 90px;
+    right: 40px;
 
     flex-direction: row;
     justify-content: center;
@@ -497,8 +497,8 @@
 .phone-panel {
     position: fixed;
     z-index: 2;
-    top: 110px;
-    right: 24px;
+    top: 35vh;
+    right: 50px;
     width: 270px;
     max-width: calc(100vw - 24px);
     max-height: calc(100vh - 24px);

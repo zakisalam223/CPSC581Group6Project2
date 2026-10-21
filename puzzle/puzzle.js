@@ -19,8 +19,8 @@ const demoButton = document.getElementById("demo-button");
 let interval;
 // CHANGE TIME AS NEEDED (to go to level complete faster)
 let hour = 0;
-let min = 1;
-let sec = 0;
+let min = 0;
+let sec = 1;
 let showInfo = false;
 let timer_set = 0;
 
@@ -84,12 +84,6 @@ hourContainer.addEventListener("change", () => {
     updateTimerUI();
 })
 
-function showMainUI() {
-    levelCompleteUI.style.display = 'none';
-    mainUI.style.display = 'grid';
-    // TODO: adjust camera back to default middle of whole screen
-}
-
 function showLevelCompleteUI() {
     mainUI.style.display = 'none';
     levelCompleteUI.style.display = 'grid';
@@ -97,7 +91,6 @@ function showLevelCompleteUI() {
 }
 
 function endTimer() {
-    console.log("Times up!");
     hour = 0
     min = 0
     sec = 0
@@ -137,6 +130,7 @@ function toggleInfoBox() {
     showInfo = !showInfo;
     infoBox.style.display = showInfo ? 'block' : 'none';
 }
+
 
 
 

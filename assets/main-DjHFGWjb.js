@@ -1,1 +1,0 @@
-import"./mainstyle-A_bD0DwQ.js";var e=document.getElementById(`puzzleBtn`);e&&e.addEventListener(`click`,()=>{window.location.href=`./puzzle/puzzle.html`});

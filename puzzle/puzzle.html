@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/puzzle.css">
     <title>WeeModel - puzzle</title>
     <style>
@@ -19,18 +20,27 @@
 
     <div id="scene"></div>
 
-    <div id="ui">
-        <div class="overlay-edge overlay-top">
-            <button type="button" class="infoButton russo-one-regular">
+    <!-- NOVICE MAIN -->
+    <div id="ui-main">
+        <div class="overlay-edge main-overlay-top">
+            <button type="button" class="infoBtn russo-one-regular">
                 <img src="/assets/ListIcon.png" alt="list icon" class="infoIcon">
                 INFO
             </button>
-        </div>
-        <div class="overlay-edge overlay-right"></div>
-        <div class="overlay-edge overlay-bottom"></div>
-        <div class="overlay-edge overlay-left"></div>
 
-        <div class="overlay-content">
+            <div class="timer russo-one-regular">
+                <input type="number" id="hour" min="0" value="00" step="1" placeholder="hh" readonly></input>
+                <h2 class="colon"> : </h2>
+                <input type="number" id="min" min="0" value="00" step="1" placeholder="mm" readonly></input>
+                <h2 class="colon"> : </h2>
+                <input type="number" id="sec" min="0" value="00" step="1" placeholder="ss" readonly></input>
+            </div>
+        </div>
+        <div class="overlay-edge main-overlay-right"></div>
+        <div class="overlay-edge main-overlay-bottom"></div>
+        <div class="overlay-edge main-overlay-left"></div>
+
+        <div class="main-overlay-content">
             <div class="infoBox russo-one-regular">
                 <div class="infoBoxTitle">Missing Puzzle Piece</div>
                 <div class="goals">Main Goal: Fill Hollow Space
@@ -44,25 +54,74 @@
                     <div class="controlsTitle">Controls</div>
                     <div class="controlsList">
                         <div class="controlsListRow">
-                            <div class="funcButton">T</div>
+                            <div class="funcKeys">T</div>
                             <div>Translation</div>
                         </div>
                         <div class="controlsListRow">
-                            <div class="funcButton">R</div>
+                            <div class="funcKeys">R</div>
                             <div>Rotation</div>
                         </div>
                         <div class="controlsListRow">
-                            <div class="funcButton">S</div>
+                            <div class="funcKeys">S</div>
                             <div>Scaling</div>
                         </div>
                         <div class="controlsListRow">
-                            <div class="funcButton">C</div>
+                            <div class="funcKeys">C</div>
                             <div>Camera</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- LEVEL COMPLETE -->
+    <div id="ui-level-complete">
+        <div class="overlay-edge lc-overlay-top"></div>
+        <div class="overlay-edge lc-overlay-right">
+            <div class="completeContainer">
+                <div class="completeTitle">Complete!</div>
+                <div class="taskBox">
+                    <img src="/assets/StarIcon.png" alt="star icon" class="taskIcon">
+                    Translate cube
+                </div>
+                <div class="taskBox">
+                    <img src="/assets/StarIcon.png" alt="star icon" class="taskIcon">
+                    Rotate cube
+                </div>
+                <div class="taskBox">
+                    <img src="/assets/StarIcon.png" alt="star icon" class="taskIcon">
+                    Scale cube
+                </div>
+                <div class="taskBox">
+                    <img src="/assets/ClockIcon.png" alt="clock icon" class="taskIcon">
+                    00:01:00
+                </div>
+            </div>
+        </div>
+        <div class="overlay-edge lc-overlay-bottom">
+            <div class="completeBtnsContainer">
+                <button id="exit-button" class="completeBtn russo-one-regular">
+                    <img src="/assets/ExitButton.png" alt="exit" class="completeBtnIcon">
+                    Exit
+                </button>
+                <button id="retry-button" class="completeBtn russo-one-regular">
+                    <img src="/assets/RetryButton.png" alt="retry" class="completeBtnIcon">
+                    Retry
+                </button>
+                <button id="levels-button" class="completeBtn russo-one-regular">
+                    <img src="/assets/LevelsButton.png" alt="levels" class="completeBtnIcon">
+                    Levels
+                </button>
+                <button id="demo-button" class="completeBtn russo-one-regular">
+                    <img src="/assets/DemoButton.png" alt="demo" class="completeBtnIcon">
+                    Demo
+                </button>
+            </div>
+        </div>
+        <div class="overlay-edge lc-overlay-left"></div>
+
+        <div class="lc-overlay-content"></div>
     </div>
 
 </body>

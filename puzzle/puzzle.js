@@ -1,32 +1,136 @@
 import * as THREE from 'three';
-import '../css/mainstyle.css';
 import skyUrl from '/assets/sky.png';
 
-const infoBoxStyles = {
-    padding: '10px',
-    backgroundColor: '#1E1E1E',
-    border: '2px solid #FFFFFF',
-    color: '#86D338',
-    width: '225px',
-    position: 'relative',
-    right: '24px',
-    bottom: '20px',
-};
+const hourContainer = document.getElementById("hour");
+const minContainer = document.getElementById("min");
+const secContainer = document.getElementById("sec");
 
-const infoButton = document.querySelector('.infoButton');
+const levelCompleteUI = document.getElementById("ui-level-complete");
+const mainUI = document.getElementById("ui-main");
+
+const infoButton = document.querySelector('.infoBtn');
 const infoBox = document.querySelector('.infoBox');
-let showInfo = false;
 
+const exitButton = document.getElementById("exit-button");
+const retryButton = document.getElementById("retry-button");
+const levelsButton = document.getElementById("levels-button");
+const demoButton = document.getElementById("demo-button");
+
+let interval;
+// CHANGE TIME AS NEEDED (to go to level complete faster)
+let hour = 0;
+let min = 0;
+let sec = 1;
+let showInfo = false;
+let timer_set = 0;
+
+const updateTimerUI = () => {
+    hourContainer.value = String(hour).padStart(2, '0');
+    minContainer.value = String(min).padStart(2, '0');
+    secContainer.value = String(sec).padStart(2, '0');
+}
+
+const updateHMS = () => {
+    sec = timer_set % 60;
+    min = Math.floor(timer_set / 60);
+    hour = Math.floor(min / 60);
+    min = min % 60;
+    updateTimerUI();
+}
+
+window.addEventListener("load", startTimer);
 infoButton.addEventListener("click", toggleInfoBox);
+
+exitButton.addEventListener('click', () => {
+    window.location.href = '/';
+})
+
+retryButton.addEventListener('click', () => {
+    window.location.reload();
+})
+
+levelsButton.addEventListener('click', () => {
+    window.location.href = '../level-select.html';
+})
+
+demoButton.addEventListener('click', () => {
+    window.alert("OOPS! Demo in progress...");
+})
+
+minContainer.addEventListener("change", () => {
+    min = parseInt(minContainer.value)
+    if (min >= 60) {
+        hour = Math.floor(hour + min / 60);
+        min = min % 60;
+    }
+    updateTimerUI();
+})
+
+secContainer.addEventListener("change", () => {
+    sec = parseInt(secContainer.value)
+    if (sec >= 60) {
+        min = Math.floor(min + sec / 60);
+        sec = sec % 60;
+        if (min > 60) {
+            hour = Math.floor(hour + min / 60);
+            min = min % 60;
+        }
+    }
+    updateTimerUI();
+})
+
+hourContainer.addEventListener("change", () => {
+    hour = parseInt(hourContainer.value);
+    updateTimerUI();
+})
+
+function showLevelCompleteUI() {
+    mainUI.style.display = 'none';
+    levelCompleteUI.style.display = 'grid';
+    // TODO: adjust camera so shape is in the middle of the new view
+}
+
+function endTimer() {
+    hour = 0
+    min = 0
+    sec = 0
+    timer_set = 0;
+    if (interval) {
+        clearInterval(interval);
+    }
+    hourContainer.value = "";
+    minContainer.value = "";
+    secContainer.value = "";
+
+    // Change overlay to Level Complete UI
+    showLevelCompleteUI();
+}
+
+function startTimer() {
+    updateTimerUI();
+    timer_set = hour * 60 * 60 + min * 60 + sec;
+
+    if (timer_set > 0) {
+        interval = setInterval(() => {
+            timer_set -= 1;
+
+            if (timer_set <= 0) {
+                endTimer();
+                clearInterval(interval);
+            }
+
+            updateHMS();
+        }, 1000)
+    } else {
+        endTimer()
+    }
+}
 
 function toggleInfoBox() {
     showInfo = !showInfo;
     infoBox.style.display = showInfo ? 'block' : 'none';
-
-    if (showInfo) {
-        Object.assign(infoBox.style, infoBoxStyles);
-    }
 }
+
 
 
 

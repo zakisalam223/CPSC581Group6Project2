@@ -5,8 +5,8 @@
     z-index: 0;
 }
 
-/* UI layer */
-#ui {
+/* Main UI layer */
+#ui-main {
     position: fixed;
     inset: 0;
     z-index: 1;
@@ -22,35 +22,39 @@
     background-color: #35322C;
 }
 
-.overlay-top {
+.main-overlay-top {
     grid-row-start: 1;
     grid-column-start: 1;
     grid-row-end: 2;
     grid-column-end: 4;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.overlay-bottom {
+.main-overlay-bottom {
     grid-row-start: 3;
     grid-column-start: 1;
     grid-row-end: 4;
     grid-column-end: 4;
 }
 
-.overlay-left {
+.main-overlay-left {
     grid-row-start: 2;
     grid-column-start: 1;
     grid-row-end: 3;
     grid-column-end: 2;
 }
 
-.overlay-right {
+.main-overlay-right {
     grid-row-start: 2;
     grid-column-start: 3;
     grid-row-end: 3;
     grid-column-end: 4;
 }
 
-.overlay-content {
+.main-overlay-content {
     grid-row-start: 2;
     grid-column-start: 2;
     grid-row-end: 3;
@@ -58,7 +62,7 @@
     color: white;
 }
 
-.infoButton {
+.infoBtn {
     cursor: pointer;
     margin: 15px;
     padding: 10px 12px;
@@ -75,13 +79,26 @@
     gap: 8px;
 }
 
+.infoBtn:hover {
+    background-color: #60a41c;
+}
+
 .infoIcon {
     width: 30px;
     height: 22px;
 }
 
 .infoBox {
+    /* Handle conditional showing in js */
     display: none;
+    padding: 10px;
+    background-color: #1E1E1E;
+    border: 2px solid #FFFFFF;
+    color: #86D338;
+    width: 230px;
+    position: relative;
+    right: 24px;
+    bottom: 8px;
 }
 
 .infoBoxTitle {
@@ -122,7 +139,7 @@
     }
 }
 
-.funcButton {
+.funcKeys {
     background-color: #D9D9D9;
     color: #000;
     font-size: 16px;
@@ -134,4 +151,157 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 1px 3.2px #B8B8B8;
+}
+
+.timer {
+    margin: 0 12px;
+    background-color: #000;
+    color: #fff;
+    height: 50px;
+    border-radius: 6px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer input {
+    padding-left: 15px;
+    background-color: #000;
+    color: #fff;
+    font-size: 20px;
+    width: 37px;
+    border: none;
+}
+
+/* disabling spin-button arrows */
+/* for Chrome, Safari, Edge, and Opera */
+.timer input::-webkit-outer-spin-button,
+.timer input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* for Firefox */
+.timer input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Level Complete UI layer */
+#ui-level-complete {
+    /* Handle conditional showing in js */
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    /* This is to configure top and bottom widths */
+    grid-template-rows: 15px 1fr 30vh;
+    /* This is to configure left and right widths */
+    grid-template-columns: 15px 1fr 35vw;
+    /* Note: "1fr" fills the middle space for the scene */
+}
+
+.lc-overlay-top {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 4;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.lc-overlay-bottom {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-row-end: 4;
+    grid-column-end: 4;
+}
+
+.lc-overlay-left {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-row-end: 3;
+    grid-column-end: 2;
+}
+
+.lc-overlay-right {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    grid-row-end: 3;
+    grid-column-end: 4;
+    color: #86D338;
+}
+
+.lc-overlay-content {
+    grid-row-start: 2;
+    grid-column-start: 2;
+    grid-row-end: 3;
+    grid-column-end: 3;
+}
+
+.completeContainer {
+    font-family: "Press Start 2P", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.completeTitle {
+    padding: 15px 10px;
+    font-size: 40px;
+}
+
+.taskBox {
+    display: block;
+    padding: 8px;
+    font-size: 14px;
+    background-color: #1E1E1E;
+    border: 2px solid #FFFFFF;
+    width: 315px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.taskIcon {
+    width: 45px;
+    height: 45px;
+}
+
+.completeBtnsContainer {
+    width: 65vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completeBtn {
+    cursor: pointer;
+    margin: 15px;
+    padding: 10px 12px;
+    background-color: transparent;
+    color: #86D338;
+    border: none;
+    font-size: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.completeBtn:hover {
+    transform: scale(1.04);
+}
+
+.completeBtnIcon {
+    width: 90px;
+    height: 90px;
 }

@@ -323,3 +323,85 @@
     width: 90px;
     height: 90px;
 }
+
+.phoneToggleButton {
+    cursor: pointer;
+    margin: 15px;
+    padding: 10px 12px;
+    background-color: #86D338;
+    border: none;
+    color: #000000;
+    font-size: 24px;
+    border-radius: 6px;
+}
+
+.phoneToggleButton:hover {
+    background-color: #60a41c;
+}
+
+.phone-panel {
+    position: fixed;
+    z-index: 2;
+    top: 110px;
+    right: 24px;
+    width: 270px;
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: rgba(157, 39, 155, 0.5);
+    border: 2px solid #FFFFFF;
+    color: #86D338;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.phone-panel[hidden] { display: none; }
+
+.phone-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.phone-drag-handle { flex: 1; cursor: grab; touch-action: none; }
+.phone-drag-handle:active { cursor: grabbing; }
+
+.phoneCloseButton {
+    padding: 0 4px;
+    border: 0;
+    background: transparent;
+    color: #FFFFFF;
+    font: inherit;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.phone-canvas { width: 100%; height: 320px; margin-left: 5px; }
+
+.phone-readout {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #FFFFFF;
+
+    .axis b {
+        font-weight: normal;
+        display: inline-block;
+        min-width: 4ch;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+    }
+    .axis-x { color: #FF4D4D; }
+    .axis-y { color: #86D338; }
+    .axis-z { color: #4D8DFF; }
+}
+
+@media (max-width: 700px) {
+    .phone-panel { width: 170px; }
+    .phone-canvas { height: 200px; }
+}

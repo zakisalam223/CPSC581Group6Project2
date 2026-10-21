@@ -28,6 +28,11 @@
                 INFO
             </button>
 
+            <button type="button" class="phoneToggleButton russo-one-regular"
+                aria-controls="phonePanel" aria-expanded="false">
+                PHONE
+            </button>
+
             <div class="timer russo-one-regular">
                 <input type="number" id="hour" min="0" value="00" step="1" placeholder="hh" readonly></input>
                 <h2 class="colon"> : </h2>
@@ -39,6 +44,7 @@
             <div class="modeUI">
                 <h2>Mode: <span id="mode-text">Camera</span></h2>
             </div>
+            
         </div>
         <div class="overlay-edge main-overlay-right"></div>
         <div class="overlay-edge main-overlay-bottom"></div>
@@ -50,6 +56,7 @@
                 <div class="goals">Main Goal: Fill Hollow Space
                     <ul class="goalsList">
                         <li>Rotate Shape</li>
+                        <li>Scale Shape</li>
                         <li>Translate Shape</li>
                         <li>Move Shape into Hollow</li>
                     </ul>
@@ -77,6 +84,19 @@
                 </div>
             </div>
         </div>
+         <aside class="phone-panel russo-one-regular" id="phonePanel"
+            aria-label="Phone mirroring the cube's rotation" hidden>
+            <div class="phone-title">
+                <span class="phone-drag-handle">Phone</span>
+                <button type="button" class="phoneCloseButton" aria-label="Close phone panel">&times;</button>
+            </div>
+            <div id="phoneCanvas" class="phone-canvas"></div>
+            <div class="phone-readout">
+                <span class="axis axis-x">X <b id="phoneX">0°</b></span>
+                <span class="axis axis-y">Y <b id="phoneY">0°</b></span>
+                <span class="axis axis-z">Z <b id="phoneZ">0°</b></span>
+            </div>
+        </aside>
     </div>
 
     <!-- LEVEL COMPLETE -->

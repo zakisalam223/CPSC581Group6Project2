@@ -17,6 +17,12 @@ readyButtons.forEach((button) => {
         screen.dataset.state = everyoneReady ? 'loading' : 'title';
         titleScreen.hidden = everyoneReady;
         loadingScreen.hidden = !everyoneReady;
+
+        if (everyoneReady) {
+            window.setTimeout(() => {
+                window.location.href = './level-select.html';
+            }, 2000);
+        }
     });
 });
 

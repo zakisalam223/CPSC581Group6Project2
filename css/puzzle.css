@@ -30,6 +30,13 @@
 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-overlay-top-left {
+    display: flex;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -105,12 +112,131 @@
     font-size: 20px;
 }
 
+.helpBtn {
+    cursor: pointer;
+    margin: 15px;
+    padding: 12px 15px;
+    background-color: #C72E25;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.helpIcon {
+    width: 20px;
+    height: 23px;
+}
+
 .goals {
     font-size: 16px;
     margin-top: 10px;
 
     .goalsList {
         margin-top: 5px;
+    }
+}
+
+/* CUSTOM CHECKBOX START */
+/* Customize the label (the goal container) */
+.goal {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.goal input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.goal:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.goal input:checked~.checkmark {
+    background-color: #43A047;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.goal input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.goal .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* CUSTOM CHECKBOX END */
+
+.goalPopup {
+    /* Handle conditional showing in js */
+    display: none;
+    padding: 10px;
+    background-color: #1E1E1E;
+    border: 2px solid #FFFFFF;
+    color: #86D338;
+    width: 200px;
+    position: relative;
+    left: 76.5vw;
+    bottom: 64vh;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    .goalPopupText {
+        font-size: 20px;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
     }
 }
 

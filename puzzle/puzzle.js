@@ -3,6 +3,37 @@ import skyUrl from '/assets/sky.png';
 import hollowUrl from '/assets/hollow.obj';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 
+const goals = {
+    goal1: "Rotate Shape",
+    goal2: "Translate Shape",
+    goal3: "Move Shape into Hollow",
+}
+
+let popupTimer = null;
+
+const goal1Check = document.getElementById("goal1");
+const goal2Check = document.getElementById("goal2");
+const goal3Check = document.getElementById("goal3");
+
+const goalPopup = document.querySelector(".goalPopup");
+const goalPopupText = document.querySelector(".goalPopupText");
+
+const showCheckPopup = (goalId) => {
+    // Clear any existing timer to prevent overlapping loops
+    if (popupTimer) {
+        clearTimeout(popupTimer);
+    }
+
+    goalPopupText.textContent = goals[goalId];
+    goalPopup.style.display = 'flex';
+
+    // Store new timer ID
+    popupTimer = setTimeout(() => {
+        goalPopup.style.display = 'none';
+        popupTimer = null; // Clear timer
+    }, 4000);
+}
+
 const hourContainer = document.getElementById("hour");
 const minContainer = document.getElementById("min");
 const secContainer = document.getElementById("sec");
@@ -57,6 +88,24 @@ levelsButton.addEventListener('click', () => {
 
 demoButton.addEventListener('click', () => {
     window.alert("OOPS! Demo in progress...");
+})
+
+goal1Check.addEventListener("change", () => {
+    if (goal1Check.checked == true) {
+        showCheckPopup("goal1");
+    }
+})
+
+goal2Check.addEventListener("change", () => {
+    if (goal2Check.checked == true) {
+        showCheckPopup("goal2");
+    }
+})
+
+goal3Check.addEventListener("change", () => {
+    if (goal3Check.checked == true) {
+        showCheckPopup("goal3");
+    }
 })
 
 minContainer.addEventListener("change", () => {

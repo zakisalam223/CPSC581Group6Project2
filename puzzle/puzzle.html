@@ -23,36 +23,55 @@
     <!-- NOVICE MAIN -->
     <div id="ui-main">
         <div class="overlay-edge main-overlay-top">
-            <button type="button" class="infoBtn russo-one-regular">
-                <img src="/assets/ListIcon.png" alt="list icon" class="infoIcon">
-                INFO
+            <div class="main-overlay-top-left">
+                <button type="button" class="infoBtn russo-one-regular">
+                    <img src="/assets/ListIcon.png" alt="list icon" class="infoIcon">
+                    INFO
+                </button>
+
+                <div class="timer russo-one-regular">
+                    <input type="number" id="hour" min="0" value="00" step="1" placeholder="hh" readonly></input>
+                    <h2 class="colon"> : </h2>
+                    <input type="number" id="min" min="0" value="00" step="1" placeholder="mm" readonly></input>
+                    <h2 class="colon"> : </h2>
+                    <input type="number" id="sec" min="0" value="00" step="1" placeholder="ss" readonly></input>
+                </div>
+
+                <div class="modeUI">
+                    <h2>Mode: <span id="mode-text">Camera</span></h2>
+                </div>
+            </div>
+
+            <button type="button" class="helpBtn russo-one-regular">
+                <img src="/assets/BellIcon.png" alt="bell icon" class="helpIcon">
+                HELP
             </button>
-
-            <div class="timer russo-one-regular">
-                <input type="number" id="hour" min="0" value="00" step="1" placeholder="hh" readonly></input>
-                <h2 class="colon"> : </h2>
-                <input type="number" id="min" min="0" value="00" step="1" placeholder="mm" readonly></input>
-                <h2 class="colon"> : </h2>
-                <input type="number" id="sec" min="0" value="00" step="1" placeholder="ss" readonly></input>
-            </div>
-
-            <div class="modeUI">
-                <h2>Mode: <span id="mode-text">Camera</span></h2>
-            </div>
         </div>
         <div class="overlay-edge main-overlay-right"></div>
         <div class="overlay-edge main-overlay-bottom"></div>
         <div class="overlay-edge main-overlay-left"></div>
 
         <div class="main-overlay-content">
+            <!-- Info Box -->
             <div class="infoBox russo-one-regular">
                 <div class="infoBoxTitle">Missing Puzzle Piece</div>
                 <div class="goals">Main Goal: Fill Hollow Space
-                    <ul class="goalsList">
-                        <li>Rotate Shape</li>
-                        <li>Translate Shape</li>
-                        <li>Move Shape into Hollow</li>
-                    </ul>
+                    <div class="goalsList">
+                        <label class="goal">Rotate Shape
+                            <input type="checkbox" id="goal1">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="goal">Translate Shape
+                            <input type="checkbox" id="goal2">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="goal">Move Shape into Hollow
+                            <input type="checkbox" id="goal3">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
                 </div>
                 <div class="controlsBox">
                     <div class="controlsTitle">Controls</div>
@@ -75,6 +94,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Goal Pop-up -->
+            <div class="goalPopup goal russo-one-regular">
+                <div class="goalPopupText"></div>
+                <img src="/assets/Check.png" alt="check">
             </div>
         </div>
     </div>

@@ -175,6 +175,19 @@
     border: none;
 }
 
+/* disabling spin-button arrows */
+/* for Chrome, Safari, Edge, and Opera */
+.timer input::-webkit-outer-spin-button,
+.timer input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* for Firefox */
+.timer input[type=number] {
+    -moz-appearance: textfield;
+}
+
 /* Level Complete UI layer */
 #ui-level-complete {
     /* Handle conditional showing in js */

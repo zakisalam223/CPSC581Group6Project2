@@ -34,6 +34,10 @@
     display: flex;
     align-items: flex-start;
     gap: 16px;
+    padding: 14px 20px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.08);
 }
 
 /* Level card (green square with number + stars) */

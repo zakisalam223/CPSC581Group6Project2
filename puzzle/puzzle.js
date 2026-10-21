@@ -20,7 +20,7 @@ let interval;
 // CHANGE TIME AS NEEDED (to go to level complete faster)
 let hour = 0;
 let min = 0;
-let sec = 1;
+let sec = 1000;
 let showInfo = false;
 let timer_set = 0;
 
@@ -219,7 +219,19 @@ const TransformationStates = Object.freeze({
     Camera: 'camera',
 });
 
+// for the modeUI to show which mode the user is in (e.g. rotation, camera)
+const modeText = document.getElementById("mode-text");
+const modeLabels = {
+    [TransformationStates.Translation]: "Translation",
+    [TransformationStates.Rotation]: "Rotation",
+    [TransformationStates.Scaling]: "Scaling",
+    [TransformationStates.Camera]: "Camera",
+};
+
 var currentTransformationState = TransformationStates.Camera;
+setTransformationState(currentTransformationState);
+
+var isZBeingPressed = false; // for knowing if the obj should be transformed in z axis
 
 const timer = new THREE.Timer();
 const pressedKeys = new Set();
@@ -229,30 +241,35 @@ const transformationSpeed = 2;
 function animate(time) {
     timer.update(time);
     const deltaTime = timer.getDelta();
-    applyTransformations(currentTransformationState, deltaTime);
+    applyTransformations(currentTransformationState, deltaTime, isZBeingPressed);
     renderer.render(scene, camera);
 }
 renderer.setAnimationLoop(animate);
 
 window.addEventListener("keydown", (event) => {
+
+    if (event.key == "z") {
+        isZBeingPressed = true;
+    }
+
     switch (event.key) {
         case "t": {
-            currentTransformationState = TransformationStates.Translation;
+            setTransformationState(TransformationStates.Translation);
             break;
         }
 
         case "r": {
-            currentTransformationState = TransformationStates.Rotation;
+            setTransformationState(TransformationStates.Rotation);
             break;
         }
 
         case "s": {
-            currentTransformationState = TransformationStates.Scaling;
+            setTransformationState(TransformationStates.Scaling);
             break;
         }
 
         case "c": {
-            currentTransformationState = TransformationStates.Camera;
+            setTransformationState(TransformationStates.Camera);
             break;
         }
 
@@ -271,16 +288,25 @@ window.addEventListener("keydown", (event) => {
 
 window.addEventListener("keyup", (event) => {
     pressedKeys.delete(event.key);
+
+    if (event.key == "z") {
+        isZBeingPressed = false
+    }
 });
 
 window.addEventListener("blur", () => pressedKeys.clear());
 
+function setTransformationState(state) {
+    currentTransformationState = state;
+    modeText.textContent = modeLabels[state];
+}
 
 // transforms the cube depending on which transformation state the user is in
-function applyTransformations(transState, deltaTime) {
+function applyTransformations(transState, deltaTime, isZBeingPressed) {
 
     let x = 0;
     let y = 0;
+    let z = 0;
 
     if (pressedKeys.has("ArrowRight")) {
         x += 1
@@ -288,17 +314,29 @@ function applyTransformations(transState, deltaTime) {
     if (pressedKeys.has("ArrowLeft")) {
         x -= 1
     }
-    if (pressedKeys.has("ArrowUp")) {
-        y += 1
-    }
-    if (pressedKeys.has("ArrowDown")) {
-        y -= 1
+
+    if (isZBeingPressed && currentTransformationState != TransformationStates.Camera) {
+        if (pressedKeys.has("ArrowUp")) {
+            z -= 1
+        }
+        if (pressedKeys.has("ArrowDown")) {
+            z += 1
+        }
+
+    } else {
+        if (pressedKeys.has("ArrowUp")) {
+            y += 1
+        }
+        if (pressedKeys.has("ArrowDown")) {
+            y -= 1
+        }
     }
 
     switch (transState) {
         case TransformationStates.Translation: {
             cube.position.x += x * transformationSpeed * deltaTime;
             cube.position.y += y * transformationSpeed * deltaTime;
+            cube.position.z += z * transformationSpeed * deltaTime;
             break;
         }
         case TransformationStates.Rotation: {
@@ -309,6 +347,7 @@ function applyTransformations(transState, deltaTime) {
         case TransformationStates.Scaling: {
             cube.scale.x = Math.max(0.01, cube.scale.x + (x * transformationSpeed * deltaTime));
             cube.scale.y = Math.max(0.01, cube.scale.y + (y * transformationSpeed * deltaTime));
+            cube.scale.z = Math.max(0.01, cube.scale.z + (z * transformationSpeed * deltaTime));
             break;
         }
 

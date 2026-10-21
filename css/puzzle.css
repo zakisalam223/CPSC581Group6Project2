@@ -87,7 +87,7 @@
 }
 
 .infoBtn:hover {
-    background-color: #60a41c;
+    background-color: rgb(160, 235, 85)
 }
 
 .infoIcon {
@@ -106,6 +106,7 @@
     position: relative;
     right: 24px;
     bottom: 8px;
+    overflow-y: auto;
 }
 
 .infoBoxTitle {
@@ -245,8 +246,28 @@
     border: 1px solid #86D338;
     color: white;
 
-    .controlsTitle {
-        font-size: 16px;
+    .controlsBoxTop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .controlsTitle {
+            font-size: 16px;
+        }
+
+        .controlsMoreBtn {
+            cursor: pointer;
+            padding: 2px 3px;
+            background-color: #9D279B;
+            border: none;
+            color: #000000;
+            font-size: 13px;
+            border-radius: 10px;
+        }
+
+        .controlsMoreBtn:hover {
+            background-color: #d753d5;
+        }
     }
 
     .controlsList {
@@ -261,6 +282,14 @@
             flex-direction: row;
             align-items: center;
             gap: 10px;
+
+            .controlsListRowDetails {
+                font-size: 13px;
+
+                .controlsListRowDetailsIndent {
+                    margin-left: 10px;
+                }
+            }
         }
     }
 }

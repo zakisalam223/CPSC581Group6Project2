@@ -20,6 +20,7 @@
    ========================= */
 
 body {
+  position: relative;
   box-sizing: border-box;
   min-height: 100vh;
   min-height: 100dvh;
@@ -32,6 +33,38 @@ body {
   background-color: #528693;
 }
 
+/* Speaker */
+body::before,
+body::after {
+  position: fixed;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  background:
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
+      50% 0 / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
+      100% 50% / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
+      50% 100% / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
+      0 50% / 8px 8px no-repeat;
+  content: "";
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+body::before {
+  left: 2vw;
+}
+
+body::after {
+  right: 2vw;
+}
+
+/* =========================
+   Outer screen
+   ========================= */
 .screenOuterBox {
   box-sizing: border-box;
   display: flex;

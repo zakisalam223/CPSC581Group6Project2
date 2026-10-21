@@ -1,8 +1,11 @@
+import failNoise from '/assets/fail-noise.mp3';
+import completeNoise from '/assets/complete-noise.mp3';
+
 const wrongBtn = document.querySelector('.wrongBtn');
 const rightBtn = document.querySelector('.rightBtn');
 
-const wrongNoise = new Audio('../assets/fail-noise.mp3');
-const rightNoise = new Audio('../assets/complete-noise.mp3');
+const wrongNoise = new Audio(failNoise);
+const rightNoise = new Audio(completeNoise);
 
 wrongBtn.addEventListener("click", playWrongHaptics);
 rightBtn.addEventListener("click", playRightHaptics);

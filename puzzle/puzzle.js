@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import '../css/mainstyle.css';
-import skyUrl from '../assets/sky.png';
+import skyUrl from '/assets/sky.png';
 
 const infoBoxStyles = {
     padding: '10px',

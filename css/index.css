@@ -41,14 +41,10 @@ body::after {
   width: 36px;
   height: 36px;
   background:
-    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
-      50% 0 / 8px 8px no-repeat,
-    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
-      100% 50% / 8px 8px no-repeat,
-    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
-      50% 100% / 8px 8px no-repeat,
-    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
-      0 50% / 8px 8px no-repeat;
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px) 50% 0 / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px) 100% 50% / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px) 50% 100% / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px) 0 50% / 8px 8px no-repeat;
   content: "";
   transform: translateY(-50%);
   pointer-events: none;
@@ -117,11 +113,11 @@ body::after {
 }
 
 .screenInnerBox[data-state="title"]::before {
-  background: url("../assets/ready-up/noise.png");
+  background: url("/assets/ready-up/noise.png");
 }
 
 .screenInnerBox[data-state="loading"]::before {
-  background: url("../assets/ready-up/novice.png") repeat;
+  background: url("/assets/ready-up/novice.png") repeat;
   background-size: auto 160px;
   animation: scroll-image 5s linear infinite;
   opacity: 0.12;

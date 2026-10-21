@@ -6,8 +6,8 @@ import { createPhoneView } from '../demo/phone.js';
 
 const goals = {
     goal1: "Rotate Shape",
-    goal2: "Translate Shape",
-    goal3: "Move Shape into Hollow",
+    goal2: "Scale Shape",
+    goal3: "Translate Shape into Hollow",
 }
 
 let popupTimer = null;

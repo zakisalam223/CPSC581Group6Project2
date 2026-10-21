@@ -200,12 +200,12 @@ scene.add(cube);
 
 const objLoader = new OBJLoader();
 const hollowObj = await objLoader.loadAsync(hollowUrl);
-const hollowMaterial = new THREE.MeshPhongMaterial({ color: 0x666666,emissive: 0x000000, specular: 0x111111, shininess: 100, flatShading: false  });
+const hollowMaterial = new THREE.MeshPhongMaterial({ color: 0x666666, emissive: 0x000000, specular: 0x111111, shininess: 100, flatShading: false });
 hollowObj.traverse((child) => {
-  if (child.isMesh) child.material = hollowMaterial;
+    if (child.isMesh) child.material = hollowMaterial;
 });
 hollowObj.position.set(-2, 1, -4);
-hollowObj.scale.set(0.4,0.4,0.4)
+hollowObj.scale.set(0.4, 0.4, 0.4)
 hollowObj.rotateX(-Math.PI / 6)
 hollowObj.rotateY(-Math.PI / 2)
 scene.add(hollowObj);

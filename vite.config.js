@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         puzzle: resolve(__dirname, 'puzzle/puzzle.html'),
+        remote: resolve(__dirname, 'remote/remote.html'),
         // ADD MORE AS NEEDED
       },
     },

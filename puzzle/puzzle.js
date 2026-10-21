@@ -38,7 +38,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshPhongMaterial({ color: 0xBBFFAA, emissive: 0x000000, specular: 0x111111, shininess: 100, flatShading: false});
+const material = new THREE.MeshPhongMaterial({ color: 0xBBFFAA, emissive: 0x000000, specular: 0x111111, shininess: 100, flatShading: false });
 
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
@@ -76,23 +76,23 @@ camera.lookAt(0, 0, 0);
 
 // creating world axis lines
 const xAxisPoints = [
-  new THREE.Vector3(-10000, 0, 0),
-  new THREE.Vector3(10000, 0, 0)
+    new THREE.Vector3(-10000, 0, 0),
+    new THREE.Vector3(10000, 0, 0)
 ];
 
 const yAxisPoints = [
-  new THREE.Vector3(0, -10000, 0),
-  new THREE.Vector3(0, 10000, 0)
+    new THREE.Vector3(0, -10000, 0),
+    new THREE.Vector3(0, 10000, 0)
 ];
 
 const zAxisPoints = [
-  new THREE.Vector3(0, 0, -10000),
-  new THREE.Vector3(0, 0, 10000)
+    new THREE.Vector3(0, 0, -10000),
+    new THREE.Vector3(0, 0, 10000)
 ];
 
-const red = new THREE.LineBasicMaterial({ color: 0xff0000});
-const green = new THREE.LineBasicMaterial({ color: 0x00ff00});
-const blue = new THREE.LineBasicMaterial({ color: 0x0000ff});
+const red = new THREE.LineBasicMaterial({ color: 0xff0000 });
+const green = new THREE.LineBasicMaterial({ color: 0x00ff00 });
+const blue = new THREE.LineBasicMaterial({ color: 0x0000ff });
 
 const xAxisGeometry = new THREE.BufferGeometry().setFromPoints(xAxisPoints);
 const yAxisGeometry = new THREE.BufferGeometry().setFromPoints(yAxisPoints);

@@ -1,0 +1,325 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Russo+One&display=swap");
+
+/* Shared font (press start 2p) */
+.press-start-2p {
+  font-family: "Press Start 2P", sans-serif;
+  color: #9d279b;
+}
+
+/* Message below the screen frame */
+.bottomMessage {
+  font-family: "Russo One", sans-serif;
+  text-align: center;
+  color: #696562;
+  margin: clamp(12px, 1vh, 32px) 0 0;
+}
+
+
+/* =========================
+   Page and outer frame
+   ========================= */
+
+body {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #528693;
+}
+
+/* Speaker */
+body::before,
+body::after {
+  position: fixed;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  background:
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
+      50% 0 / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
+      100% 50% / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
+      50% 100% / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(47, 46, 42, 0.45) 3px, transparent 3.5px)
+      0 50% / 8px 8px no-repeat;
+  content: "";
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+body::before {
+  left: 2vw;
+}
+
+body::after {
+  right: 2vw;
+}
+
+/* =========================
+   Outer screen
+   ========================= */
+.screenOuterBox {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  width: 90vw;
+  height: 90vh;
+
+  padding: clamp(16px, 4vw, 50px);
+  padding-bottom: clamp(8px, 1.5vh, 16px);
+
+  background-color: #2f2e2a;
+  border-radius: clamp(18px, 4vw, 50px);
+
+  box-shadow:
+    0 0 4px 10px #335760,
+    0 14px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================
+   Inner screen and backgrounds
+   ========================= */
+
+.screenInnerBox {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  background-color: #fcfaf3;
+
+  box-shadow:
+    inset 10px 0 4px rgba(0, 0, 0, 0.25),
+    inset -10px 0 4px rgba(0, 0, 0, 0.25),
+    inset 0 10px 4px rgba(0, 0, 0, 0.25),
+    inset 0 -10px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Decorative background layer, behind the screen content */
+.screenInnerBox::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.screenInnerBox[data-state="title"]::before {
+  background: url("../assets/ready-up/noise.png");
+}
+
+.screenInnerBox[data-state="loading"]::before {
+  background: url("../assets/ready-up/novice.png") repeat;
+  background-size: auto 160px;
+  animation: scroll-image 5s linear infinite;
+  opacity: 0.12;
+}
+
+@keyframes scroll-image {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 160px 0;
+  }
+}
+
+
+/* =========================
+   Screen states
+   ========================= */
+
+/* Both screens fill the inner frame */
+.screenContent,
+.loadingScreen {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+/* The title screen can scroll if content is too big on y-axis */
+.screenContent {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Main title screen */
+#titleScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  min-height: 100%;
+}
+
+/* Loading screen stays centered */
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hidden screens must not display as flex containers */
+.screenContent[hidden],
+.loadingScreen[hidden] {
+  display: none;
+}
+
+/* =========================
+   Headings
+   ========================= */
+
+/* Main title */
+.titleHeading {
+  margin-top: 50px;
+  text-align: center;
+  font-size: clamp(24px, 4vw, 48px);
+}
+
+/* Apprentice and Game Master headings */
+.apprenticeHeading,
+.gameMasterHeading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 3.5rem;
+  margin: 0;
+
+  font-size: clamp(12px, 1.5vw, 20px);
+  text-align: center;
+}
+
+/* =========================
+   Player layout
+   ========================= */
+
+.playerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Each player uses the same three-row layout:
+   heading, image area, button area. */
+.playerReady1,
+.playerReady2 {
+  display: grid;
+  grid-template-rows: 3.5rem 35vh 50px;
+  align-content: space-between;
+  justify-items: center;
+
+  width: 40%;
+  min-width: 0;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* Equal-height image areas have a shared starting baseline */
+.playerImageArea {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  width: 100%;
+  height: 35vh;
+}
+
+/* Shared image behavior */
+.playerImageArea img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Individual character size limits */
+.playerReady1 img {
+  max-width: 220px;
+}
+
+.playerReady2 img {
+  max-width: 400px;
+}
+
+
+/* =========================
+   Ready buttons
+   ========================= */
+
+/* Fixed-height area keeps both buttons aligned */
+.playerButtonArea {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  width: 100%;
+  height: 50px;
+}
+
+/* Button x-axis adjustments */
+.playerReady1 .playerButtonArea {
+  transform: translateX(-2vw);
+}
+
+.playerReady2 .playerButtonArea {
+  transform: translateX(2vw);
+}
+
+/* Shared button appearance */
+.playerReady1 button,
+.playerReady2 button {
+  padding: 12px 24px;
+  min-width: 150px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-family: "Russo One", sans-serif;
+  font-size: clamp(15px, 1.5vw, 20px);
+  color: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Not ready */
+.playerReady1 button[aria-pressed="false"],
+.playerReady2 button[aria-pressed="false"] {
+  background-color: #dac484;
+}
+
+/* Ready */
+.playerReady1 button[aria-pressed="true"],
+.playerReady2 button[aria-pressed="true"] {
+  background-color: #86d338;
+}
+
+/* Hover feedback */
+.playerReady1 button:hover,
+.playerReady2 button:hover {
+  transform: scale(1.04);
+}

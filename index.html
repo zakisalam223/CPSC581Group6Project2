@@ -1,25 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="./css/mainstyle.css">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/index.css" />
     <title>WeeModel</title>
-    <style>
-        body {
-            margin: 0;
-        }
-    </style>
-
     <script type="module" src="./main.js"></script>
+  </head>
 
-</head>
+  <body>
+    <div class="screenOuterBox">
+      <div class="screenInnerBox" id="screen" data-state="title">
+        <div class="screenContent" id="titleScreen">
+          <h1 class="press-start-2p titleHeading">WeeModel</h1>
+          <div class="playerContainer">
 
-<body>
+            <!-- Apprentice  -->
+            <div class="playerReady1">
+              <h2 class="press-start-2p apprenticeHeading">Apprentice</h2>
+              <div class="playerImageArea">
+                <img src="./assets/ready-up/novice.png" alt="novice" />
+              </div>
+              <div class="playerButtonArea">
+                <button type="button" data-ready aria-pressed="false">
+                  Not ready
+                </button>
+              </div>
+            </div>
 
-    <h1>Ready Up Page - in progress...</h1>
-    <button id="puzzleBtn">Go to Puzzle Page</button>
+            <!-- Game Master -->
+            <div class="playerReady2">
+              <h2 class="press-start-2p gameMasterHeading">Game Master</h2>
+              <div class="playerImageArea">
+                <img src="./assets/ready-up/game-master.png" alt="expert" style="transform: scaleX(-1)"/>
+              </div>
+              <div class="playerButtonArea">
+                <button type="button" data-ready aria-pressed="false">
+                  Not ready
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-</body>
+        <div class="loadingScreen" id="loadingScreen" hidden aria-live="polite">
+          <p class="press-start-2p">Loading...</p>
+        </div>
+      </div>
 
+      <div class="russo-one bottomMessage">3D Expertise Sharing Online</div>
+    </div>
+  </body>
 </html>

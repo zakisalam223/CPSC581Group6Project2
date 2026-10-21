@@ -341,6 +341,7 @@
 /* for Firefox */
 .timer input[type=number] {
     -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 /* for showing the mode the user is in (e.g. rotation mode, camera mode) */

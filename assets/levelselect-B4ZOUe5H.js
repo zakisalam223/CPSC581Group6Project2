@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill-P2Xu9kJm.js";/* empty css              */var e=document.getElementById(`puzzleBtn`);e&&e.addEventListener(`click`,()=>{window.location.href=`./puzzle/puzzle.html`});

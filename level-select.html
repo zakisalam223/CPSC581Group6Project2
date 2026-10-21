@@ -2,20 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8">
     <title>Level Select</title>
     <style>body{margin:0}</style>
-
 
-  <script type="module" crossorigin src="/CPSC581Group6Project2/assets/levelselect-C_Be5tDG.js"></script>
+
+  <script type="module" crossorigin src="/CPSC581Group6Project2/assets/levelselect-B4ZOUe5H.js"></script>
   <link rel="modulepreload" crossorigin href="/CPSC581Group6Project2/assets/modulepreload-polyfill-P2Xu9kJm.js">
-  <link rel="stylesheet" crossorigin href="/CPSC581Group6Project2/assets/mainstyle-BFk9AhUc.css">
+  <link rel="stylesheet" crossorigin href="/CPSC581Group6Project2/assets/levelselect-RJjSO9kr.css">
+  <link rel="stylesheet" crossorigin href="/CPSC581Group6Project2/assets/style-9GDxZ4wD.css">
 </head>
 
 <body>
+    <div class="levelSelectPage">
+        <h1 class="levelSelectTitle russo-one-regular">Level Selection</h1>
+        <div class="levelList">
+            <div class="levelRow">
+                <!-- Keeps id="puzzleBtn" so your existing level-select.js still routes to the puzzle -->
+                <button type="button" id="puzzleBtn" class="levelCard">
+                    <span class="levelNumber">1</span>
+                    <span class="levelStars" aria-label="0 of 3 stars">&#9734;&#9734;&#9734;</span>
+                </button>
 
-    <h1>Ready Up Page - in progress...</h1>
-    <button id="puzzleBtn">Go to Puzzle Page</button>
+                <div class="levelInfo">
+                    <h2 class="levelName">Missing Puzzle Piece</h2>
+                    <div class="levelTags">
+                        <span class="levelTag">Rotation</span>
+                        <span class="levelTag">Transformation</span>
+                        <span class="levelTag">Scaling</span>
+                    </div>
+                </div>
+                
+
+                <!-- Placeholder button -->
+                <button type="button" class="editBtn" aria-label="Edit level">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+                        <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="levelRow">
+                <button type="button" class="levelCard">
+                    <span class="levelNumber">2</span>
+                    <span class="levelStars" aria-label="0 of 3 stars">&#9734;&#9734;&#9734;</span>
+                </button>
+
+                <div class="levelInfo">
+                    <h2 class="levelName">Ball on a ramp</h2>
+                    <div class="levelTags">
+                        <span class="levelTag">Translation</span>
+                        <span class="levelTag">Rotation</span>
+                    </div>
+                </div>
+
+                <!-- Placeholder button -->
+                <button type="button" class="editBtn" aria-label="Edit level">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+                        <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="levelRow">
+                <button type="button" class="levelCard">
+                    <span class="levelNumber">3</span>
+                    <span class="levelStars" aria-label="0 of 3 stars">&#9734;&#9734;&#9734;</span>
+                </button>
+
+                <div class="levelInfo">
+                    <h2 class="levelName">Fit the key</h2>
+                    <div class="levelTags">
+                        <span class="levelTag">Scaling</span>
+                        <span class="levelTag">Rotation</span>
+                    </div>
+                </div>
+
+                <!-- Placeholder button -->
+                <button type="button" class="editBtn" aria-label="Edit level">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+                        <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="levelRow">
+                <button type="button" class="levelCard">
+                    <span class="levelNumber">4</span>
+                    <span class="levelStars" aria-label="0 of 3 stars">&#9734;&#9734;&#9734;</span>
+                </button>
+
+                <div class="levelInfo">
+                    <h2 class="levelName">Tower builder</h2>
+                    <div class="levelTags">
+                        <span class="levelTag">Translation</span>
+                        <span class="levelTag">Rotation</span>
+                        <span class="levelTag">Scaling</span>
+                    </div>
+                </div>
+
+                <!-- Placeholder button -->
+                <button type="button" class="editBtn" aria-label="Edit level">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+                        <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                </button>
+            </div>
+
+
+            <!-- Placeholder button -->
+            <button type="button" class="addLevelBtn" aria-label="Add level">+</button>
+        </div>
+    </div>
 
 </body>
 

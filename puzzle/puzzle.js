@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import skyUrl from '/assets/sky.png';
+import hollowUrl from '/assets/hollow.obj';
+import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 
 const hourContainer = document.getElementById("hour");
 const minContainer = document.getElementById("min");
@@ -147,20 +149,26 @@ const material = new THREE.MeshPhongMaterial({ color: 0xBBFFAA, emissive: 0x0000
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
-const hollowGeometry = new THREE.BoxGeometry(0.7, 4, 1);
-const hollowMaterial = new THREE.MeshPhongMaterial({ color: 0x555555, transparent: true, opacity: 0.4, side: THREE.DoubleSide });
-const hollowObject = new THREE.Mesh(hollowGeometry, hollowMaterial);
-hollowObject.position.set(2, 1, -2.5);
-hollowObject.rotateX(Math.PI / 4)
-scene.add(hollowObject);
+const objLoader = new OBJLoader();
+const hollowObj = await objLoader.loadAsync(hollowUrl);
+const hollowMaterial = new THREE.MeshPhongMaterial({ color: 0x666666,emissive: 0x000000, specular: 0x111111, shininess: 100, flatShading: false  });
+hollowObj.traverse((child) => {
+  if (child.isMesh) child.material = hollowMaterial;
+});
+hollowObj.position.set(-2, 1, -4);
+hollowObj.scale.set(0.4,0.4,0.4)
+hollowObj.rotateX(-Math.PI / 6)
+hollowObj.rotateY(-Math.PI / 2)
+scene.add(hollowObj);
 
-const light1 = new THREE.DirectionalLight(0xffffff, 1);
+const light1 = new THREE.DirectionalLight(0xffffff, 2.0);
 light1.position.set(5, 5, 5);
-
-const light2 = new THREE.AmbientLight(0xffffff, 0.85);
-
-scene.add(light1);
-scene.add(light2);
+const light3 = new THREE.DirectionalLight(0xffffff, 1.0);
+light3.position.set(-5, 2, -3);
+const light4 = new THREE.DirectionalLight(0xffffff, 0.6);
+light4.position.set(0, -5, 2);
+const light2 = new THREE.AmbientLight(0xffffff, 0.3);
+scene.add(light1, light3, light4, light2);
 
 const textureLoader = new THREE.TextureLoader();
 textureLoader.load(skyUrl, (texture) => {
@@ -358,6 +366,5 @@ function applyTransformations(transState, deltaTime, isZBeingPressed) {
             camera.lookAt(0, 0, 0);
         }
     }
-
 
 }

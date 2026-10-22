@@ -13,7 +13,7 @@ Figma link:  https://www.figma.com/design/nOO2y2usijLp907GDpolum/CPSC-581-Projec
     - Note: The other game cards/levels below are for show (do not navigate to any other levels)
 5. Apprentice Main Puzzle Screen: Click "INFO", "MORE" (within info box), and "PHONE" buttons for controls and task details
     - Note: "MORE" button details the emobodied input that the keybinds are generally mapped to
-    - Note: "HELP" button is just for show (not implemented, and would've been extra implementation)
+    - Note: "HELP" button is just for show (not implemented, and would've been extra implementation). The "HELP" button would provide the novice with a hint provided by the expert. 
 6. Apprentice Main Puzzle Screen: After completing each task under the main goal, click the check-box
     - Note: Visit the [remote screen](https://zakisalam223.github.io/CPSC581Group6Project2/remote/remote.html) on your phone to demonstrate some embodied output (vibration functionality is only supported on android devices and certain browsers e.g. Google Chrome or Samsung Browser - your device must have vibrations on in your settings also)
 7. Level Complete Screen: Once all check-boxes are checked click "Demo" button

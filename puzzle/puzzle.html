@@ -7,9 +7,9 @@
     <style>body{margin:0}</style>
 
 
-  <script type="module" crossorigin src="/CPSC581Group6Project2/assets/puzzle-DWDXvGu4.js"></script>
+  <script type="module" crossorigin src="/CPSC581Group6Project2/assets/puzzle-D3arFtQ9.js"></script>
   <link rel="modulepreload" crossorigin href="/CPSC581Group6Project2/assets/modulepreload-polyfill-P2Xu9kJm.js">
-  <link rel="stylesheet" crossorigin href="/CPSC581Group6Project2/assets/puzzle-kRB7lkK4.css">
+  <link rel="stylesheet" crossorigin href="/CPSC581Group6Project2/assets/puzzle-C2pchiLo.css">
   <link rel="stylesheet" crossorigin href="/CPSC581Group6Project2/assets/style-9GDxZ4wD.css">
 </head>
 
@@ -20,81 +20,302 @@
     <!-- NOVICE MAIN -->
     <div id="ui-main">
         <div class="overlay-edge main-overlay-top">
-            <button type="button" class="infoBtn russo-one-regular">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAjCAYAAADSQImyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAd5JREFUeAHtmE1uwjAQhcdBsEPAjgWg9ASw7K7hBLQnKNygnKDkBnAC0hPQnqDpDeAEdfmRWAZ2IAF9Q0nlRsmuql3Jn4Rkz4zF2E7GLxYEarWaJ4R4xM9DV+IXzOdzn1KoVqtuPp8fI7aFbpk0gP8Od7tdb71eS1Gv129hmCSDTqdTsFgseqqNky8UCq9ouqSf6HA4tB1e+TQv7F3XdVuqDck/kBnJM+VcLjdw0GhlRWCGP3zYlSaZRZMnEGV5kbBU+9iVDzII5CN5AqMMv1wul6FqOB6PARkEv6e5zWYTlkqlCvrXik86jtOOgDpgu91KxAo0PdKPj0o5EnEPL6zLzzxmFSVXPkkcS5rKKF7eZyllRBaL5f/zXYVY0KF0emi+7/f7NxZKWYMusXwqV0gDOI/CuFKKMigWi5OLEo2RKJN3q9VqmhzcaDRYOw1IMyj3Q4jNPqvRAMnfp8REOLiu1MMMsV3EjskcfFajnQwn78xNwpYVq4sOayEtp+lv4eBZCrOcOLJnah+7NSOzmDpIsk/pktqH3pCqAZVnSF+fnCbAgtM/l1EWZyhNAzSbLOaw0vxN/JQ2So0lfY/fCy9mcoEtFovl7zmXUXu1qAd7tWgC9mpRK/ZqkQy4WvwEi/cKud7w1VwAAAAASUVORK5CYII=" alt="list icon" class="infoIcon">
-                INFO
-            </button>
+            <div class="main-overlay-top-left">
+                <button type="button" class="infoBtn russo-one-regular">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAjCAYAAADSQImyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAd5JREFUeAHtmE1uwjAQhcdBsEPAjgWg9ASw7K7hBLQnKNygnKDkBnAC0hPQnqDpDeAEdfmRWAZ2IAF9Q0nlRsmuql3Jn4Rkz4zF2E7GLxYEarWaJ4R4xM9DV+IXzOdzn1KoVqtuPp8fI7aFbpk0gP8Od7tdb71eS1Gv129hmCSDTqdTsFgseqqNky8UCq9ouqSf6HA4tB1e+TQv7F3XdVuqDck/kBnJM+VcLjdw0GhlRWCGP3zYlSaZRZMnEGV5kbBU+9iVDzII5CN5AqMMv1wul6FqOB6PARkEv6e5zWYTlkqlCvrXik86jtOOgDpgu91KxAo0PdKPj0o5EnEPL6zLzzxmFSVXPkkcS5rKKF7eZyllRBaL5f/zXYVY0KF0emi+7/f7NxZKWYMusXwqV0gDOI/CuFKKMigWi5OLEo2RKJN3q9VqmhzcaDRYOw1IMyj3Q4jNPqvRAMnfp8REOLiu1MMMsV3EjskcfFajnQwn78xNwpYVq4sOayEtp+lv4eBZCrOcOLJnah+7NSOzmDpIsk/pktqH3pCqAZVnSF+fnCbAgtM/l1EWZyhNAzSbLOaw0vxN/JQ2So0lfY/fCy9mcoEtFovl7zmXUXu1qAd7tWgC9mpRK/ZqkQy4WvwEi/cKud7w1VwAAAAASUVORK5CYII=" alt="list icon" class="infoIcon">
+                    INFO
+                </button>
 
-            <button type="button" class="phoneToggleButton russo-one-regular"
-                aria-controls="phonePanel" aria-expanded="false">
-                PHONE
-            </button>
+                <button type="button" class="phoneToggleButton russo-one-regular" aria-controls="phonePanel"
+                    aria-expanded="false">
+                    PHONE
+                </button>
 
-            <div class="timer russo-one-regular">
-                <input type="number" id="hour" min="0" value="00" step="1" placeholder="hh" readonly></input>
-                <h2 class="colon"> : </h2>
-                <input type="number" id="min" min="0" value="00" step="1" placeholder="mm" readonly></input>
-                <h2 class="colon"> : </h2>
-                <input type="number" id="sec" min="0" value="00" step="1" placeholder="ss" readonly></input>
+                <div class="timer russo-one-regular">
+                    <input type="number" id="hour" min="0" value="00" step="1" placeholder="hh" readonly></input>
+                    <h2 class="colon"> : </h2>
+                    <input type="number" id="min" min="0" value="00" step="1" placeholder="mm" readonly></input>
+                    <h2 class="colon"> : </h2>
+                    <input type="number" id="sec" min="0" value="00" step="1" placeholder="ss" readonly></input>
+                </div>
+
+                <div class="modeUI">
+                    <h2>Mode: <span class="mode-text">Camera</span></h2>
+                </div>
             </div>
 
-            <div class="modeUI">
-                <h2>Mode: <span id="mode-text">Camera</span></h2>
-            </div>
-            
+            <button type="button" class="helpBtn russo-one-regular">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAmCAYAAACh1knUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAtVJREFUeAHtWOl12kAQHmHu4wUqiDoIqQCowFBBKCGpAFNB7ArAFdhUAKkgpAKUCrC5H2e+yRN+YnStjuA/+d5bHaPd0bejmdlZaRQQ8/m8rmlaE612Op10nMvmozGuDbTnzWYzqFQqL0H0aqodmcDNzU0HL68rdDcSiUQ/l8t1SRFKRJbLZQenOwoOY7vdNmAdw6+jLxGQ6OHUpvAwYMVWsVgcU1gibpaA4hf4wojbfr9/ZRk+RRX3t7jUHVQpW8YG9gkQOcm2WCzuQaTsNg7P2+g3keNWq9XQ632uFmFlZJ9dt1Ao3JEP1uu1fjweh3I8ZI1SqTRyGpNwErI1yE6ir0KCgWjhqGng8iKEOercxjgSwbduCxErVg7FMxlY4MEq49CfTqflIERqQjRixRQQcOR7KYNVmqRCxGSsW2XJZPKZQsDMrsbFCxFdpEIkm83aTIfQe6WQ4LQv7j+QChEnwCIG/WPYiBwOhzLFCDjsb5V+NiJeySomVCgskTARY9Eny4GPpEIEXq0LUaC6QkI6KzmvRY7OWhWKPFdNP8BHDCEqOyU1JyKfhKJfFAGpVMo2kXw+X/MkAqZc+l1YBJnwJ0WA6V8Xn3e32zXIiwjY1+2q6AdFBBx2YL036xZ3InDUL+K5ESVizsDnHQmRbq7wdiL8QBbGuH+gGIAkyWuVZ0nwRgTW6EkF6BxqsZPgxQ9WebTKeNJWqyT5YNamuhg/hlPVZ7MZxQFMdOoge0KAfOZaVkMt+R3svtL74W9hrXFhS+8MGOJbAodImTMOIG1MknDIFrz6ybKHvSo4MjOZzID+Iyrg3E3etXHDru5tXcKmqmPu8HpuWwYvKP+WYPCimE6nJxYRJ6oW/OxWpICu6mbsjGSQzvBuOdMyktIQJGTXKgWEUhV/hvlrwfDrxxmTAiIQEfMlDR8yXazYj3QN8G4fjtpHm1p+Vwzl0n5VcNUfxxbkD3eae90ofE6gAAAAAElFTkSuQmCC" alt="bell icon" class="helpIcon">
+                HELP
+            </button>
         </div>
         <div class="overlay-edge main-overlay-right"></div>
         <div class="overlay-edge main-overlay-bottom"></div>
         <div class="overlay-edge main-overlay-left"></div>
 
         <div class="main-overlay-content">
+            <!-- Info Box -->
             <div class="infoBox russo-one-regular">
                 <div class="infoBoxTitle">Missing Puzzle Piece</div>
                 <div class="goals">Main Goal: Fill Hollow Space
-                    <ul class="goalsList">
-                        <li>Rotate Shape</li>
-                        <li>Scale Shape</li>
-                        <li>Translate Shape</li>
-                        <li>Move Shape into Hollow</li>
-                    </ul>
+                    <div class="goalsList">
+                        <label class="goal">Rotate Shape
+                            <input type="checkbox" id="goal1">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="goal">Scale Shape
+                            <input type="checkbox" id="goal2">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="goal">Translate Shape into Hollow
+                            <input type="checkbox" id="goal3">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
                 </div>
                 <div class="controlsBox">
-                    <div class="controlsTitle">Controls</div>
+                    <div class="controlsBoxTop">
+                        <div class="controlsTitle">Controls</div>
+                        <button type="button" class="controlsMoreBtn russo-one-regular">
+                            MORE
+                        </button>
+                    </div>
                     <div class="controlsList">
                         <div class="controlsListRow">
                             <div class="funcKeys">T</div>
-                            <div>Translation</div>
+                            <div>
+                                <div>Translation</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                        <div>
+                                            z-axis: (hold &#x1F149;) ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="controlsListRow">
                             <div class="funcKeys">R</div>
-                            <div>Rotation</div>
+                            <div>
+                                <div>Rotation</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="controlsListRow">
                             <div class="funcKeys">S</div>
-                            <div>Scaling</div>
+                            <div>
+                                <div>Scaling</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                        <div>
+                                            z-axis: (hold &#x1F149;) ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="controlsListRow">
                             <div class="funcKeys">C</div>
-                            <div>Camera</div>
+                            <div>
+                                <div>Camera</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Goal Pop-up -->
+            <div class="goalPopup russo-one-regular">
+                <div class="goalPopupText"></div>
+                <img src="data:image/png;base64,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" alt="check">
+            </div>
         </div>
-         <aside class="phone-panel russo-one-regular" id="phonePanel"
-            aria-label="Phone mirroring the cube's rotation" hidden>
-            <div class="phone-title">
-                <span class="phone-drag-handle">Phone</span>
-                <button type="button" class="phoneCloseButton" aria-label="Close phone panel">&times;</button>
-            </div>
-            <div id="phoneCanvas" class="phone-canvas"></div>
-            <div class="phone-readout">
-                <span class="axis axis-x">X <b id="phoneX">0°</b></span>
-                <span class="axis axis-y">Y <b id="phoneY">0°</b></span>
-                <span class="axis axis-z">Z <b id="phoneZ">0°</b></span>
-            </div>
-        </aside>
     </div>
+
+    <!-- EXPERT DEMO -->
+    <div id="ui-demo">
+        <div class="overlay-edge main-overlay-top">
+            <div class="main-overlay-top-left">
+                <button type="button" class="infoBtn russo-one-regular">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAjCAYAAADSQImyAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAAd5JREFUeAHtmE1uwjAQhcdBsEPAjgWg9ASw7K7hBLQnKNygnKDkBnAC0hPQnqDpDeAEdfmRWAZ2IAF9Q0nlRsmuql3Jn4Rkz4zF2E7GLxYEarWaJ4R4xM9DV+IXzOdzn1KoVqtuPp8fI7aFbpk0gP8Od7tdb71eS1Gv129hmCSDTqdTsFgseqqNky8UCq9ouqSf6HA4tB1e+TQv7F3XdVuqDck/kBnJM+VcLjdw0GhlRWCGP3zYlSaZRZMnEGV5kbBU+9iVDzII5CN5AqMMv1wul6FqOB6PARkEv6e5zWYTlkqlCvrXik86jtOOgDpgu91KxAo0PdKPj0o5EnEPL6zLzzxmFSVXPkkcS5rKKF7eZyllRBaL5f/zXYVY0KF0emi+7/f7NxZKWYMusXwqV0gDOI/CuFKKMigWi5OLEo2RKJN3q9VqmhzcaDRYOw1IMyj3Q4jNPqvRAMnfp8REOLiu1MMMsV3EjskcfFajnQwn78xNwpYVq4sOayEtp+lv4eBZCrOcOLJnah+7NSOzmDpIsk/pktqH3pCqAZVnSF+fnCbAgtM/l1EWZyhNAzSbLOaw0vxN/JQ2So0lfY/fCy9mcoEtFovl7zmXUXu1qAd7tWgC9mpRK/ZqkQy4WvwEi/cKud7w1VwAAAAASUVORK5CYII=" alt="list icon" class="infoIcon">
+                    INFO
+                </button>
+
+                <button type="button" class="phoneToggleButton russo-one-regular" aria-controls="phonePanel"
+                    aria-expanded="false">
+                    PHONE
+                </button>
+
+                <div class="modeUI">
+                    <h2>Mode: <span class="mode-text">Camera</span></h2>
+                </div>
+            </div>
+
+            <div class="demoTitle">Demo</div>
+
+            <button type="button" class="recordBtn russo-one-regular">
+                RECORD
+            </button>
+        </div>
+        <div class="overlay-edge main-overlay-right"></div>
+        <div class="overlay-edge main-overlay-bottom"></div>
+        <div class="overlay-edge main-overlay-left"></div>
+
+        <div class="main-overlay-content">
+            <!-- Info Box -->
+            <div class="infoBox russo-one-regular">
+                <div class="infoBoxTitle">Missing Puzzle Piece</div>
+                <div class="goals">Main Goal: Fill Hollow Space
+                    <div class="goalsList">
+                        <label class="goal">Rotate Shape
+                            <input type="checkbox" id="goal1">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="goal">Scale Shape
+                            <input type="checkbox" id="goal2">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="goal">Translate Shape into Hollow
+                            <input type="checkbox" id="goal3">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="controlsBox">
+                    <div class="controlsBoxTop">
+                        <div class="controlsTitle">Controls</div>
+                        <button type="button" class="controlsMoreBtn russo-one-regular">
+                            MORE
+                        </button>
+                    </div>
+                    <div class="controlsList">
+                        <div class="controlsListRow">
+                            <div class="funcKeys">T</div>
+                            <div>
+                                <div>Translation</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                        <div>
+                                            z-axis: (hold &#x1F149;) ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="controlsListRow">
+                            <div class="funcKeys">R</div>
+                            <div>
+                                <div>Rotation</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="controlsListRow">
+                            <div class="funcKeys">S</div>
+                            <div>
+                                <div>Scaling</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                        <div>
+                                            z-axis: (hold &#x1F149;) ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="controlsListRow">
+                            <div class="funcKeys">C</div>
+                            <div>
+                                <div>Camera</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recording Message -->
+            <div class="recordMessage russo-one-regular"></div>
+        </div>
+    </div>
+
+    <aside class="phone-panel russo-one-regular" id="phonePanel" aria-label="Phone mirroring the cube's rotation"
+        hidden>
+        <div class="phone-title">
+            <span class="phone-drag-handle">Phone</span>
+            <button type="button" class="phoneCloseButton" aria-label="Close phone panel">&times;</button>
+        </div>
+        <div id="phoneCanvas" class="phone-canvas"></div>
+        <div class="phone-readout">
+            <span class="axis axis-x">X <b id="phoneX">0°</b></span>
+            <span class="axis axis-y">Y <b id="phoneY">0°</b></span>
+            <span class="axis axis-z">Z <b id="phoneZ">0°</b></span>
+        </div>
+    </aside>
 
     <!-- LEVEL COMPLETE -->
     <div id="ui-level-complete">
@@ -116,7 +337,7 @@
                 </div>
                 <div class="taskBox">
                     <img src="data:image/png;base64,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" alt="clock icon" class="taskIcon">
-                    00:01:00
+                    <div class="timeText"></div>
                 </div>
             </div>
         </div>

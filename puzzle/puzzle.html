@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="modeUI">
-                    <h2>Mode: <span id="mode-text">Camera</span></h2>
+                    <h2>Mode: <span class="mode-text">Camera</span></h2>
                 </div>
             </div>
 
@@ -167,20 +167,160 @@
                 <img src="/assets/Check.png" alt="check">
             </div>
         </div>
-        <aside class="phone-panel russo-one-regular" id="phonePanel" aria-label="Phone mirroring the cube's rotation"
-            hidden>
-            <div class="phone-title">
-                <span class="phone-drag-handle">Phone</span>
-                <button type="button" class="phoneCloseButton" aria-label="Close phone panel">&times;</button>
-            </div>
-            <div id="phoneCanvas" class="phone-canvas"></div>
-            <div class="phone-readout">
-                <span class="axis axis-x">X <b id="phoneX">0°</b></span>
-                <span class="axis axis-y">Y <b id="phoneY">0°</b></span>
-                <span class="axis axis-z">Z <b id="phoneZ">0°</b></span>
-            </div>
-        </aside>
     </div>
+
+    <!-- EXPERT DEMO -->
+    <div id="ui-demo">
+        <div class="overlay-edge main-overlay-top">
+            <div class="main-overlay-top-left">
+                <button type="button" class="infoBtn russo-one-regular">
+                    <img src="/assets/ListIcon.png" alt="list icon" class="infoIcon">
+                    INFO
+                </button>
+
+                <button type="button" class="phoneToggleButton russo-one-regular" aria-controls="phonePanel"
+                    aria-expanded="false">
+                    PHONE
+                </button>
+
+                <div class="modeUI">
+                    <h2>Mode: <span class="mode-text">Camera</span></h2>
+                </div>
+            </div>
+
+            <div class="demoTitle">Demo</div>
+
+            <button type="button" class="recordBtn russo-one-regular">
+                RECORD
+            </button>
+        </div>
+        <div class="overlay-edge main-overlay-right"></div>
+        <div class="overlay-edge main-overlay-bottom"></div>
+        <div class="overlay-edge main-overlay-left"></div>
+
+        <div class="main-overlay-content">
+            <!-- Info Box -->
+            <div class="infoBox russo-one-regular">
+                <div class="infoBoxTitle">Missing Puzzle Piece</div>
+                <div class="goals">Main Goal: Fill Hollow Space
+                    <div class="goalsList">
+                        <label class="goal">Rotate Shape
+                            <input type="checkbox" id="goal1">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="goal">Scale Shape
+                            <input type="checkbox" id="goal2">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <label class="goal">Translate Shape into Hollow
+                            <input type="checkbox" id="goal3">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="controlsBox">
+                    <div class="controlsBoxTop">
+                        <div class="controlsTitle">Controls</div>
+                        <!-- TODO: make a phone controls cheat sheet -->
+                        <button type="button" class="controlsMoreBtn russo-one-regular">
+                            MORE
+                        </button>
+                    </div>
+                    <div class="controlsList">
+                        <div class="controlsListRow">
+                            <div class="funcKeys">T</div>
+                            <div>
+                                <div>Translation</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                        <div>
+                                            z-axis: (hold &#x1F149;) ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="controlsListRow">
+                            <div class="funcKeys">R</div>
+                            <div>
+                                <div>Rotation</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="controlsListRow">
+                            <div class="funcKeys">S</div>
+                            <div>
+                                <div>Scaling</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                        <div>
+                                            z-axis: (hold &#x1F149;) ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="controlsListRow">
+                            <div class="funcKeys">C</div>
+                            <div>
+                                <div>Camera</div>
+                                <div class="controlsListRowDetails">
+                                    <div class="controlsListRowDetailsIndent">
+                                        <div>
+                                            x-axis: ← and →
+                                        </div>
+                                        <div>
+                                            y-axis: ↑ and ↓
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recording Message -->
+            <div class="recordMessage russo-one-regular"></div>
+        </div>
+    </div>
+
+    <aside class="phone-panel russo-one-regular" id="phonePanel" aria-label="Phone mirroring the cube's rotation"
+        hidden>
+        <div class="phone-title">
+            <span class="phone-drag-handle">Phone</span>
+            <button type="button" class="phoneCloseButton" aria-label="Close phone panel">&times;</button>
+        </div>
+        <div id="phoneCanvas" class="phone-canvas"></div>
+        <div class="phone-readout">
+            <span class="axis axis-x">X <b id="phoneX">0°</b></span>
+            <span class="axis axis-y">Y <b id="phoneY">0°</b></span>
+            <span class="axis axis-z">Z <b id="phoneZ">0°</b></span>
+        </div>
+    </aside>
 
     <!-- LEVEL COMPLETE -->
     <div id="ui-level-complete">
@@ -202,7 +342,7 @@
                 </div>
                 <div class="taskBox">
                     <img src="/assets/ClockIcon.png" alt="clock icon" class="taskIcon">
-                    00:01:00
+                    <div class="timeText"></div>
                 </div>
             </div>
         </div>

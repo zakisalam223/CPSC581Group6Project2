@@ -5,7 +5,62 @@
     z-index: 0;
 }
 
-/* Main UI layer */
+/* DEMO UI LAYER */
+/* Has many of the same components as the "Main UI Layer" */
+#ui-demo {
+    /* Handle conditional showing in js */
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    /* This is to configure top and bottom widths */
+    grid-template-rows: 90px 1fr 15px;
+    /* This is to configure left and right widths */
+    grid-template-columns: 40px 1fr 40px;
+    /* Note: "1fr" fills the middle space for the scene */
+}
+
+.demoTitle {
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 40px;
+    padding-top: 40px;
+    color: #86D338;
+
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.recordBtn {
+    cursor: pointer;
+    margin: 15px;
+    padding: 10px 12px;
+    background-color: #9D279B;
+    border: none;
+    color: #000000;
+    font-size: 24px;
+    border-radius: 6px;
+}
+
+.recordBtn:hover {
+    background-color: #d753d5;
+}
+
+.recordMessage {
+    /* Handle conditional showing in js */
+    display: none;
+    padding: 10px;
+    background-color: #1E1E1E;
+    border: 2px solid #FFFFFF;
+    color: #86D338;
+    width: 275px;
+    position: fixed;
+    top: 90px;
+    right: 40px;
+    font-size: 16px;
+}
+
+/* MAIN UI LAYER */
 #ui-main {
     position: fixed;
     inset: 0;
@@ -361,7 +416,7 @@
     white-space: nowrap;
 }
 
-/* Level Complete UI layer */
+/* LEVEL COMPLETE UI LAYER */
 #ui-level-complete {
     /* Handle conditional showing in js */
     display: none;

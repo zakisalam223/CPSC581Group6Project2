@@ -10,7 +10,7 @@ export default defineConfig({
         puzzle: resolve(__dirname, 'puzzle/puzzle.html'),
         remote: resolve(__dirname, 'remote/remote.html'),
         levelselect: resolve(__dirname, 'level-select.html'),
-        phoneselect: resolve(__dirname, 'phone-cheat-sheet.html')
+        phoneselect: resolve(__dirname, 'puzzle/phone-cheat-sheet.html')
         // ADD MORE AS NEEDED
       },
     },

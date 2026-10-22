@@ -5,7 +5,62 @@
     z-index: 0;
 }
 
-/* Main UI layer */
+/* DEMO UI LAYER */
+/* Has many of the same components as the "Main UI Layer" */
+#ui-demo {
+    /* Handle conditional showing in js */
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    /* This is to configure top and bottom widths */
+    grid-template-rows: 90px 1fr 15px;
+    /* This is to configure left and right widths */
+    grid-template-columns: 40px 1fr 40px;
+    /* Note: "1fr" fills the middle space for the scene */
+}
+
+.demoTitle {
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 40px;
+    padding-top: 40px;
+    color: #86D338;
+
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+.recordBtn {
+    cursor: pointer;
+    margin: 15px;
+    padding: 10px 12px;
+    background-color: #9D279B;
+    border: none;
+    color: #000000;
+    font-size: 24px;
+    border-radius: 6px;
+}
+
+.recordBtn:hover {
+    background-color: #d753d5;
+}
+
+.recordMessage {
+    /* Handle conditional showing in js */
+    display: none;
+    padding: 10px;
+    background-color: #1E1E1E;
+    border: 2px solid #FFFFFF;
+    color: #86D338;
+    width: 275px;
+    position: fixed;
+    top: 90px;
+    right: 40px;
+    font-size: 16px;
+}
+
+/* MAIN UI LAYER */
 #ui-main {
     position: fixed;
     inset: 0;
@@ -28,6 +83,13 @@
     grid-row-end: 2;
     grid-column-end: 4;
 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-overlay-top-left {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -80,7 +142,7 @@
 }
 
 .infoBtn:hover {
-    background-color: #60a41c;
+    background-color: rgb(160, 235, 85);
 }
 
 .infoIcon {
@@ -99,10 +161,32 @@
     position: relative;
     right: 24px;
     bottom: 8px;
+    overflow-y: auto;
 }
 
 .infoBoxTitle {
     font-size: 20px;
+}
+
+.helpBtn {
+    cursor: pointer;
+    margin: 15px;
+    padding: 12px 15px;
+    background-color: #C72E25;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.helpIcon {
+    width: 20px;
+    height: 23px;
 }
 
 .goals {
@@ -114,13 +198,130 @@
     }
 }
 
+/* CUSTOM CHECKBOX START */
+/* Customize the label (the goal container) */
+.goal {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.goal input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.goal:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.goal input:checked~.checkmark {
+    background-color: #43A047;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.goal input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.goal .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* CUSTOM CHECKBOX END */
+
+.goalPopup {
+    /* Handle conditional showing in js */
+    display: none;
+    padding: 10px;
+    background-color: #1E1E1E;
+    border: 2px solid #FFFFFF;
+    color: #86D338;
+    width: 200px;
+    position: fixed;
+    top: 90px;
+    right: 40px;
+
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    .goalPopupText {
+        font-size: 20px;
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
 .controlsBox {
     padding: 5px 8px;
     border: 1px solid #86D338;
     color: white;
 
-    .controlsTitle {
-        font-size: 16px;
+    .controlsBoxTop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .controlsTitle {
+            font-size: 16px;
+        }
+
+        .controlsMoreBtn {
+            cursor: pointer;
+            padding: 2px 3px;
+            background-color: #9D279B;
+            border: none;
+            color: #000000;
+            font-size: 13px;
+            border-radius: 10px;
+        }
+
+        .controlsMoreBtn:hover {
+            background-color: #d753d5;
+        }
     }
 
     .controlsList {
@@ -135,6 +336,14 @@
             flex-direction: row;
             align-items: center;
             gap: 10px;
+
+            .controlsListRowDetails {
+                font-size: 13px;
+
+                .controlsListRowDetailsIndent {
+                    margin-left: 10px;
+                }
+            }
         }
     }
 }
@@ -186,6 +395,7 @@
 /* for Firefox */
 .timer input[type=number] {
     -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 /* for showing the mode the user is in (e.g. rotation mode, camera mode) */
@@ -206,7 +416,7 @@
     white-space: nowrap;
 }
 
-/* Level Complete UI layer */
+/* LEVEL COMPLETE UI LAYER */
 #ui-level-complete {
     /* Handle conditional showing in js */
     display: none;
@@ -336,14 +546,14 @@
 }
 
 .phoneToggleButton:hover {
-    background-color: #60a41c;
+    background-color: rgb(160, 235, 85);
 }
 
 .phone-panel {
     position: fixed;
     z-index: 2;
-    top: 110px;
-    right: 24px;
+    top: 35vh;
+    right: 50px;
     width: 270px;
     max-width: calc(100vw - 24px);
     max-height: calc(100vh - 24px);
@@ -358,7 +568,9 @@
     gap: 8px;
 }
 
-.phone-panel[hidden] { display: none; }
+.phone-panel[hidden] {
+    display: none;
+}
 
 .phone-title {
     display: flex;
@@ -367,8 +579,15 @@
     font-size: 16px;
 }
 
-.phone-drag-handle { flex: 1; cursor: grab; touch-action: none; }
-.phone-drag-handle:active { cursor: grabbing; }
+.phone-drag-handle {
+    flex: 1;
+    cursor: grab;
+    touch-action: none;
+}
+
+.phone-drag-handle:active {
+    cursor: grabbing;
+}
 
 .phoneCloseButton {
     padding: 0 4px;
@@ -381,7 +600,10 @@
     cursor: pointer;
 }
 
-.phone-canvas { width: 100%; height: 320px; margin-left: 5px; }
+.phone-canvas {
+    width: 100%;
+    height: 320px;
+}
 
 .phone-readout {
     display: flex;
@@ -396,12 +618,26 @@
         text-align: right;
         font-variant-numeric: tabular-nums;
     }
-    .axis-x { color: #FF4D4D; }
-    .axis-y { color: #86D338; }
-    .axis-z { color: #4D8DFF; }
+
+    .axis-x {
+        color: #FF4D4D;
+    }
+
+    .axis-y {
+        color: #86D338;
+    }
+
+    .axis-z {
+        color: #4D8DFF;
+    }
 }
 
 @media (max-width: 700px) {
-    .phone-panel { width: 170px; }
-    .phone-canvas { height: 200px; }
+    .phone-panel {
+        width: 170px;
+    }
+
+    .phone-canvas {
+        height: 200px;
+    }
 }

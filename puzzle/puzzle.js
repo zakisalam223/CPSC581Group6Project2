@@ -2,17 +2,81 @@ import * as THREE from 'three';
 import skyUrl from '/assets/sky.png';
 import hollowUrl from '/assets/hollow.obj';
 import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
-import { createPhoneView } from '../demo/phone.js';
+import { createPhoneView } from './phone.js';
+
+const levelCompleteUI = document.getElementById("ui-level-complete");
+const demoUI = document.getElementById("ui-demo");
+const mainUI = document.getElementById("ui-main");
+
+const timeText = document.querySelector(".timeText");
+
+const showLevelCompleteUI = (timeTakenInSeconds) => {
+    mainUI.style.display = 'none';
+    levelCompleteUI.style.display = 'grid';
+
+    // Calculate HMS from timeTakenInSeconds
+    const takenSec = timeTakenInSeconds % 60;
+    const takenMin = Math.floor(timeTakenInSeconds / 60) % 60;
+    const takenHour = Math.floor(timeTakenInSeconds / 3600);
+
+    // Format into HH:MM:SS
+    const formattedTime = `${String(takenHour).padStart(2, '0')}:${String(takenMin).padStart(2, '0')}:${String(takenSec).padStart(2, '0')}`;
+    timeText.textContent = formattedTime;
+
+    // TODO: adjust camera so shape is in the middle of the new view
+}
+
+const showDemoUI = () => {
+    mainUI.style.display = 'none'; // This should be 'none' already but just extra check
+    levelCompleteUI.style.display = 'none';
+    demoUI.style.display = 'grid';
+}
+
+const goals = {
+    goal1: "Rotate Shape",
+    goal2: "Scale Shape",
+    goal3: "Translate Shape into Hollow",
+}
+
+let popupTimer = null;
+
+const goal1Check = document.getElementById("goal1");
+const goal2Check = document.getElementById("goal2");
+const goal3Check = document.getElementById("goal3");
+
+const goalPopup = document.querySelector(".goalPopup");
+const goalPopupText = document.querySelector(".goalPopupText");
+
+const showCheckPopup = (goalId) => {
+    // Clear any existing timer to prevent overlapping loops
+    if (popupTimer) {
+        clearTimeout(popupTimer);
+    }
+
+    goalPopupText.textContent = goals[goalId];
+    goalPopup.style.display = 'flex';
+
+    // Store new timer ID
+    popupTimer = setTimeout(() => {
+        goalPopup.style.display = 'none';
+        popupTimer = null; // Clear timer
+
+        if (goal1Check.checked == true && goal2Check.checked == true && goal3Check.checked == true) {
+            endTimer();
+        }
+    }, 3000); // Pop-up stays on screen for 3 seconds
+}
 
 const hourContainer = document.getElementById("hour");
 const minContainer = document.getElementById("min");
 const secContainer = document.getElementById("sec");
 
-const levelCompleteUI = document.getElementById("ui-level-complete");
-const mainUI = document.getElementById("ui-main");
+const infoButtons = document.querySelectorAll('.infoBtn');
+const infoBoxes = document.querySelectorAll('.infoBox');
+const controlsMoreButtons = document.querySelectorAll('.controlsMoreBtn');
 
-const infoButton = document.querySelector('.infoBtn');
-const infoBox = document.querySelector('.infoBox');
+const recordBtn = document.querySelector(".recordBtn");
+const recordMessage = document.querySelector(".recordMessage");
 
 const exitButton = document.getElementById("exit-button");
 const retryButton = document.getElementById("retry-button");
@@ -22,10 +86,12 @@ const demoButton = document.getElementById("demo-button");
 let interval;
 // CHANGE TIME AS NEEDED (to go to level complete faster)
 let hour = 0;
-let min = 0;
-let sec = 20;
+let min = 5;
+let sec = 0;
 let showInfo = false;
+let recording = false;
 let timer_set = 0;
+let initial_time = 0;
 
 const updateTimerUI = () => {
     hourContainer.value = String(hour).padStart(2, '0');
@@ -42,7 +108,14 @@ const updateHMS = () => {
 }
 
 window.addEventListener("load", startTimer);
-infoButton.addEventListener("click", toggleInfoBox);
+infoButtons.forEach((button) => button.addEventListener("click", toggleInfoBox));
+controlsMoreButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        // window.location.href = './phone-cheat-sheet.html';
+        window.open('./phone-cheat-sheet.html', '_blank');
+    });
+});
+recordBtn.addEventListener('click', toggleRecording);
 
 exitButton.addEventListener('click', () => {
     window.location.href = '/';
@@ -57,7 +130,25 @@ levelsButton.addEventListener('click', () => {
 })
 
 demoButton.addEventListener('click', () => {
-    window.location.href = '../demo/demo.html';
+    showDemoUI();
+})
+
+goal1Check.addEventListener("change", () => {
+    if (goal1Check.checked == true) {
+        showCheckPopup("goal1");
+    }
+})
+
+goal2Check.addEventListener("change", () => {
+    if (goal2Check.checked == true) {
+        showCheckPopup("goal2");
+    }
+})
+
+goal3Check.addEventListener("change", () => {
+    if (goal3Check.checked == true) {
+        showCheckPopup("goal3");
+    }
 })
 
 minContainer.addEventListener("change", () => {
@@ -87,13 +178,9 @@ hourContainer.addEventListener("change", () => {
     updateTimerUI();
 })
 
-function showLevelCompleteUI() {
-    mainUI.style.display = 'none';
-    levelCompleteUI.style.display = 'grid';
-    // TODO: adjust camera so shape is in the middle of the new view
-}
-
 function endTimer() {
+    const timeTaken = initial_time - timer_set;
+
     hour = 0
     min = 0
     sec = 0
@@ -106,12 +193,13 @@ function endTimer() {
     secContainer.value = "";
 
     // Change overlay to Level Complete UI
-    showLevelCompleteUI();
+    showLevelCompleteUI(timeTaken);
 }
 
 function startTimer() {
     updateTimerUI();
     timer_set = hour * 60 * 60 + min * 60 + sec;
+    initial_time = timer_set;
 
     if (timer_set > 0) {
         interval = setInterval(() => {
@@ -131,22 +219,34 @@ function startTimer() {
 
 function toggleInfoBox() {
     showInfo = !showInfo;
-    infoBox.style.display = showInfo ? 'block' : 'none';
+    infoBoxes.forEach((infoBox) => {
+        infoBox.style.display = showInfo ? 'block' : 'none';
+    });
+}
+
+function toggleRecording() {
+    recording = !recording;
+    recordMessage.textContent = recording ? "Recording in progress..." : "Recording saved for apprentice!";
+    recordMessage.style.display = 'flex';
 }
 
 // for phone
 const phonePanel = document.getElementById('phonePanel');
-const phoneToggleButton = document.querySelector('.phoneToggleButton');
+const phoneToggleButtons = document.querySelectorAll('.phoneToggleButton');
 const phoneCloseButton = document.querySelector('.phoneCloseButton');
 const phoneDragHandle = document.querySelector('.phone-drag-handle');
 
 function setPhonePanelOpen(isOpen) {
     phonePanel.hidden = !isOpen;
-    phoneToggleButton.setAttribute('aria-expanded', String(isOpen));
+    phoneToggleButtons.forEach((button) => {
+        button.setAttribute('aria-expanded', String(isOpen));
+    });
 }
 
-phoneToggleButton.addEventListener('click', () => {
-    setPhonePanelOpen(phonePanel.hidden);
+phoneToggleButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        setPhonePanelOpen(phonePanel.hidden);
+    });
 });
 phoneCloseButton.addEventListener('click', () => setPhonePanelOpen(false));
 
@@ -193,12 +293,12 @@ const phoneView = createPhoneView(document.getElementById('phoneCanvas'), cube);
 
 const objLoader = new OBJLoader();
 const hollowObj = await objLoader.loadAsync(hollowUrl);
-const hollowMaterial = new THREE.MeshPhongMaterial({ color: 0x666666,emissive: 0x000000, specular: 0x111111, shininess: 100, flatShading: false  });
+const hollowMaterial = new THREE.MeshPhongMaterial({ color: 0x666666, emissive: 0x000000, specular: 0x111111, shininess: 100, flatShading: false });
 hollowObj.traverse((child) => {
-  if (child.isMesh) child.material = hollowMaterial;
+    if (child.isMesh) child.material = hollowMaterial;
 });
 hollowObj.position.set(-2, 1, -4);
-hollowObj.scale.set(0.4,0.4,0.4)
+hollowObj.scale.set(0.4, 0.4, 0.4)
 hollowObj.rotateX(-Math.PI / 6)
 hollowObj.rotateY(-Math.PI / 2)
 scene.add(hollowObj);
@@ -270,7 +370,7 @@ const TransformationStates = Object.freeze({
 });
 
 // for the modeUI to show which mode the user is in (e.g. rotation, camera)
-const modeText = document.getElementById("mode-text");
+const modeTextElements = document.querySelectorAll(".mode-text");
 const modeLabels = {
     [TransformationStates.Translation]: "Translation",
     [TransformationStates.Rotation]: "Rotation",
@@ -349,7 +449,9 @@ window.addEventListener("blur", () => pressedKeys.clear());
 
 function setTransformationState(state) {
     currentTransformationState = state;
-    modeText.textContent = modeLabels[state];
+    modeTextElements.forEach((modeText) => {
+        modeText.textContent = modeLabels[state];
+    });
 }
 
 // transforms the cube depending on which transformation state the user is in

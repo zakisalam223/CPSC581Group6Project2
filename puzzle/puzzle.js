@@ -73,6 +73,7 @@ const secContainer = document.getElementById("sec");
 
 const infoButtons = document.querySelectorAll('.infoBtn');
 const infoBoxes = document.querySelectorAll('.infoBox');
+const controlsMoreButtons = document.querySelectorAll('.controlsMoreBtn');
 
 const recordBtn = document.querySelector(".recordBtn");
 const recordMessage = document.querySelector(".recordMessage");
@@ -108,6 +109,12 @@ const updateHMS = () => {
 
 window.addEventListener("load", startTimer);
 infoButtons.forEach((button) => button.addEventListener("click", toggleInfoBox));
+controlsMoreButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        // window.location.href = './phone-cheat-sheet.html';
+        window.open('./phone-cheat-sheet.html', '_blank');
+    });
+});
 recordBtn.addEventListener('click', toggleRecording);
 
 exitButton.addEventListener('click', () => {

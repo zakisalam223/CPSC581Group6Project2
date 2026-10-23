@@ -118,7 +118,7 @@ controlsMoreButtons.forEach((button) => {
 recordBtn.addEventListener('click', toggleRecording);
 
 exitButton.addEventListener('click', () => {
-    window.location.href = '/';
+     window.location.href = '../index.html';
 })
 
 retryButton.addEventListener('click', () => {
